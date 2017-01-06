@@ -1,0 +1,31 @@
+PODS:
+  - Contentful (0.2.2):
+    - Decodable (~> 0.4.2)
+    - Interstellar (~> 1.4.0)
+    - "\U0001F555 (= 0.0.1)"
+  - Decodable (0.4.3)
+  - Interstellar (1.4.0):
+    - Interstellar/Core (= 1.4.0)
+    - Interstellar/Warpdrive (= 1.4.0)
+  - Interstellar/Core (1.4.0)
+  - Interstellar/Warpdrive (1.4.0):
+    - Interstellar/Core
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - "\U0001F555 (0.0.1)"
+
+DEPENDENCIES:
+  - Contentful
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  Contentful: 6d36bfcaaa655c2649b95f5da7d48b3292a4b6cb
+  Decodable: ab6c7d02a5df949d3ab16b2696528a3241e37c76
+  Interstellar: 40fc666872436d6c1b3524c59437ebdb5dec1c6a
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  "\U0001F555": 2a41c1f9b76698cb697b8ec9a1db1087f5621187
+
+PODFILE CHECKSUM: 6cfdb8d613d4ce34ac377ad589a32573a06426b1
+
+COCOAPODS: 1.2.0.beta.3
