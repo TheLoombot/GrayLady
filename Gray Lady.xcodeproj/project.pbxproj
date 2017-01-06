@@ -8,32 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		5B5E5A82B52DDF456B44458F /* Pods_Gray_Lady.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A29B9CB0A040A4B86FF9E0 /* Pods_Gray_Lady.framework */; };
-		630349221E1F74BD003A1E87 /* DetailBriefingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630349211E1F74BD003A1E87 /* DetailBriefingVC.swift */; };
-		634D54271E1F7E120088F38E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634D54261E1F7E120088F38E /* Main.storyboard */; };
+		6337FBDC1E1FAEC600A47806 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337FBDB1E1FAEC600A47806 /* HomeTVC.swift */; };
+		6337FBE01E1FB1AB00A47806 /* DetailPieceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337FBDF1E1FB1AB00A47806 /* DetailPieceCell.swift */; };
+		6337FBE21E1FB2DD00A47806 /* DetailPieceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337FBE11E1FB2DD00A47806 /* DetailPieceVC.swift */; };
 		63817D421E1E2E950067647D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63817D411E1E2E950067647D /* AppDelegate.swift */; };
 		63817D491E1E2E950067647D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63817D481E1E2E950067647D /* Assets.xcassets */; };
-		63817D4C1E1E2E950067647D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63817D4A1E1E2E950067647D /* LaunchScreen.storyboard */; };
 		63B6CCAB1E1F3A470044B42F /* ManageContentful.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B6CCAA1E1F3A470044B42F /* ManageContentful.swift */; };
-		63B705641E1F88FB00B7FD9D /* DettailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B705631E1F88FB00B7FD9D /* DettailViewCell.swift */; };
-		63B938761E1F4AC00066A435 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B938751E1F4AC00066A435 /* HomeVC.swift */; };
-		63C61B241E1E51B4001F4505 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C61B231E1E51B4001F4505 /* HomeCell.swift */; };
 		63DECCD31E1E362700CBCDDB /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DECCD21E1E362700CBCDDB /* Define.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		05A29B9CB0A040A4B86FF9E0 /* Pods_Gray_Lady.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gray_Lady.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F005FFC7686D3B8F884CC0 /* Pods-Gray Lady.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gray Lady.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gray Lady/Pods-Gray Lady.debug.xcconfig"; sourceTree = "<group>"; };
-		630349211E1F74BD003A1E87 /* DetailBriefingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailBriefingVC.swift; sourceTree = "<group>"; };
-		634D54261E1F7E120088F38E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		6337FBDB1E1FAEC600A47806 /* HomeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
+		6337FBDF1E1FB1AB00A47806 /* DetailPieceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPieceCell.swift; sourceTree = "<group>"; };
+		6337FBE11E1FB2DD00A47806 /* DetailPieceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPieceVC.swift; sourceTree = "<group>"; };
 		63817D3E1E1E2E950067647D /* Gray Lady.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gray Lady.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63817D411E1E2E950067647D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63817D481E1E2E950067647D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		63817D4B1E1E2E950067647D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63817D4D1E1E2E950067647D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63B6CCAA1E1F3A470044B42F /* ManageContentful.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageContentful.swift; sourceTree = "<group>"; };
-		63B705631E1F88FB00B7FD9D /* DettailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DettailViewCell.swift; sourceTree = "<group>"; };
-		63B938751E1F4AC00066A435 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		63C61B231E1E51B4001F4505 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		63DECCD21E1E362700CBCDDB /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		E23375E25BF0D73F93F5E630 /* Pods-Gray Lady.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gray Lady.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gray Lady/Pods-Gray Lady.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +44,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6337FBDA1E1FAE9600A47806 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6337FBDB1E1FAEC600A47806 /* HomeTVC.swift */,
+				6337FBE11E1FB2DD00A47806 /* DetailPieceVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		63817D351E1E2E950067647D = {
 			isa = PBXGroup;
 			children = (
@@ -71,14 +74,11 @@
 		63817D401E1E2E950067647D /* Gray Lady */ = {
 			isa = PBXGroup;
 			children = (
+				6337FBDA1E1FAE9600A47806 /* Controller */,
 				63C61B221E1E519A001F4505 /* Cell */,
 				63DECCD21E1E362700CBCDDB /* Define.swift */,
-				63B938751E1F4AC00066A435 /* HomeVC.swift */,
-				630349211E1F74BD003A1E87 /* DetailBriefingVC.swift */,
 				63817D411E1E2E950067647D /* AppDelegate.swift */,
-				634D54261E1F7E120088F38E /* Main.storyboard */,
 				63817D481E1E2E950067647D /* Assets.xcassets */,
-				63817D4A1E1E2E950067647D /* LaunchScreen.storyboard */,
 				63817D4D1E1E2E950067647D /* Info.plist */,
 				63B6CCAA1E1F3A470044B42F /* ManageContentful.swift */,
 			);
@@ -88,8 +88,7 @@
 		63C61B221E1E519A001F4505 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				63C61B231E1E51B4001F4505 /* HomeCell.swift */,
-				63B705631E1F88FB00B7FD9D /* DettailViewCell.swift */,
+				6337FBDF1E1FB1AB00A47806 /* DetailPieceCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -146,6 +145,7 @@
 				TargetAttributes = {
 					63817D3D1E1E2E950067647D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = RXV3295WX7;
 					};
 				};
 			};
@@ -172,8 +172,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				634D54271E1F7E120088F38E /* Main.storyboard in Resources */,
-				63817D4C1E1E2E950067647D /* LaunchScreen.storyboard in Resources */,
 				63817D491E1E2E950067647D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,27 +232,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				63DECCD31E1E362700CBCDDB /* Define.swift in Sources */,
-				63B705641E1F88FB00B7FD9D /* DettailViewCell.swift in Sources */,
 				63B6CCAB1E1F3A470044B42F /* ManageContentful.swift in Sources */,
 				63817D421E1E2E950067647D /* AppDelegate.swift in Sources */,
-				63B938761E1F4AC00066A435 /* HomeVC.swift in Sources */,
-				63C61B241E1E51B4001F4505 /* HomeCell.swift in Sources */,
-				630349221E1F74BD003A1E87 /* DetailBriefingVC.swift in Sources */,
+				6337FBE01E1FB1AB00A47806 /* DetailPieceCell.swift in Sources */,
+				6337FBE21E1FB2DD00A47806 /* DetailPieceVC.swift in Sources */,
+				6337FBDC1E1FAEC600A47806 /* HomeTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		63817D4A1E1E2E950067647D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				63817D4B1E1E2E950067647D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		63817D4E1E1E2E950067647D /* Debug */ = {
@@ -347,6 +333,8 @@
 			baseConfigurationReference = 07F005FFC7686D3B8F884CC0 /* Pods-Gray Lady.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = RXV3295WX7;
 				INFOPLIST_FILE = "Gray Lady/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -362,6 +350,8 @@
 			baseConfigurationReference = E23375E25BF0D73F93F5E630 /* Pods-Gray Lady.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = RXV3295WX7;
 				INFOPLIST_FILE = "Gray Lady/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

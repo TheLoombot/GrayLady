@@ -15,6 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.backgroundColor = .whiteColor()
+        window?.makeKeyAndVisible()
+        let navi = UINavigationController(rootViewController: HomeTVC())
+//        navi.hidesBarsOnSwipe = true
+        window?.rootViewController = navi
+
         return true
     }
 
