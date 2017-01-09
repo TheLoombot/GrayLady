@@ -47,7 +47,7 @@ class DetailPieceCell: UICollectionViewCell {
         let lbl = UILabel()
         lbl.textColor = UIColor.lightGrayColor()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.systemFontOfSize(11)
+        lbl.font = UIFont(name: "Hoefler Text", size: 11)
         lbl.numberOfLines = 0
         lbl.sizeToFit()
         return lbl
@@ -57,7 +57,7 @@ class DetailPieceCell: UICollectionViewCell {
         let lbl = UILabel()
         lbl.textColor = UIColor.blackColor()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.systemFontOfSize(11)
+        lbl.font = UIFont(name: "Hoefler Text", size: 24)
         lbl.numberOfLines = 0
         lbl.sizeToFit()
         return lbl

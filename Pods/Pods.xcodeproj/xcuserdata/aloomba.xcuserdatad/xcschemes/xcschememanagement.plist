@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Contentful.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Decodable.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Interstellar.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Pods-Gray Lady.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>🕕.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>18F4BC1B93D86745FBE3295DFEF017E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3442F484811065D03AA0A2A08420A7E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>35899FB8BFF5D7E66617AFD64E8F44A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5AC3BDC8A4FC27749F40186D8078293B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>968B2890B48033C1D982A121EA28EDF8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F724FB0E21AA22033D25D85F0FB91717</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
