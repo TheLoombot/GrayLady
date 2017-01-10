@@ -14,22 +14,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Interstellar.xcscheme</key>
+		<key>INSPhotoGallery-INSPhotoGallery.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Gray Lady.xcscheme</key>
+		<key>INSPhotoGallery.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
+		<key>Interstellar-Contentful.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>🕕.xcscheme</key>
+		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GrayLady.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>18F4BC1B93D86745FBE3295DFEF017E1</key>
+		<key>160F3D2B181465FD6DEC4E9916DF2092</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3442F484811065D03AA0A2A08420A7E9</key>
+		<key>4DEFC7CE86B6F423C0DC24820626CAF0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>35899FB8BFF5D7E66617AFD64E8F44A6</key>
+		<key>5AB2AFB1E6DC8D2967EF130A030AD1B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5AC3BDC8A4FC27749F40186D8078293B</key>
+		<key>C4944FEC314D1A66588651D006273ADE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>968B2890B48033C1D982A121EA28EDF8</key>
+		<key>E6354851098140D68493BA5EC085A996</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F724FB0E21AA22033D25D85F0FB91717</key>
+		<key>EB76C4B4D48DC0E409D42CCCD26FFBBF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FDA659925B3B3D06854CB9F39A5F3D97</key>
 		<dict>
 			<key>primary</key>
 			<true/>

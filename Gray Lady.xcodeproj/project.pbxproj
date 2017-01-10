@@ -7,149 +7,160 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B5E5A82B52DDF456B44458F /* Pods_Gray_Lady.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A29B9CB0A040A4B86FF9E0 /* Pods_Gray_Lady.framework */; };
-		6337FBDC1E1FAEC600A47806 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337FBDB1E1FAEC600A47806 /* HomeTVC.swift */; };
-		6337FBE01E1FB1AB00A47806 /* DetailPieceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337FBDF1E1FB1AB00A47806 /* DetailPieceCell.swift */; };
-		6337FBE21E1FB2DD00A47806 /* DetailPieceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337FBE11E1FB2DD00A47806 /* DetailPieceVC.swift */; };
-		63817D421E1E2E950067647D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63817D411E1E2E950067647D /* AppDelegate.swift */; };
-		63817D491E1E2E950067647D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63817D481E1E2E950067647D /* Assets.xcassets */; };
-		63B6CCAB1E1F3A470044B42F /* ManageContentful.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B6CCAA1E1F3A470044B42F /* ManageContentful.swift */; };
-		63DECCD31E1E362700CBCDDB /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DECCD21E1E362700CBCDDB /* Define.swift */; };
+		2631C9C83057ADBE5B58CC59 /* Pods_GrayLady.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD46A05BAE03EDDB6E0BBF56 /* Pods_GrayLady.framework */; };
+		639124F31E24E36300EEFBDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639124F21E24E36300EEFBDF /* AppDelegate.swift */; };
+		639124FA1E24E36300EEFBDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 639124F91E24E36300EEFBDF /* Assets.xcassets */; };
+		639124FD1E24E36300EEFBDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 639124FB1E24E36300EEFBDF /* LaunchScreen.storyboard */; };
+		6391250A1E24E58F00EEFBDF /* DetailPieceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639125051E24E58F00EEFBDF /* DetailPieceCell.swift */; };
+		6391250B1E24E58F00EEFBDF /* DetailPieceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639125071E24E58F00EEFBDF /* DetailPieceVC.swift */; };
+		6391250C1E24E58F00EEFBDF /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639125081E24E58F00EEFBDF /* HomeTVC.swift */; };
+		6391250D1E24E58F00EEFBDF /* PreviewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639125091E24E58F00EEFBDF /* PreviewImage.swift */; };
+		639125111E24E5BF00EEFBDF /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391250E1E24E5BF00EEFBDF /* Define.swift */; };
+		639125121E24E5BF00EEFBDF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391250F1E24E5BF00EEFBDF /* Extensions.swift */; };
+		639125131E24E5BF00EEFBDF /* ManageContentful.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639125101E24E5BF00EEFBDF /* ManageContentful.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05A29B9CB0A040A4B86FF9E0 /* Pods_Gray_Lady.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gray_Lady.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		07F005FFC7686D3B8F884CC0 /* Pods-Gray Lady.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gray Lady.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gray Lady/Pods-Gray Lady.debug.xcconfig"; sourceTree = "<group>"; };
-		6337FBDB1E1FAEC600A47806 /* HomeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
-		6337FBDF1E1FB1AB00A47806 /* DetailPieceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPieceCell.swift; sourceTree = "<group>"; };
-		6337FBE11E1FB2DD00A47806 /* DetailPieceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPieceVC.swift; sourceTree = "<group>"; };
-		63817D3E1E1E2E950067647D /* Gray Lady.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gray Lady.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		63817D411E1E2E950067647D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		63817D481E1E2E950067647D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		63817D4D1E1E2E950067647D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63B6CCAA1E1F3A470044B42F /* ManageContentful.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageContentful.swift; sourceTree = "<group>"; };
-		63DECCD21E1E362700CBCDDB /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
-		E23375E25BF0D73F93F5E630 /* Pods-Gray Lady.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gray Lady.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gray Lady/Pods-Gray Lady.release.xcconfig"; sourceTree = "<group>"; };
+		639124EF1E24E36300EEFBDF /* Gray Lady.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gray Lady.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		639124F21E24E36300EEFBDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		639124F91E24E36300EEFBDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		639124FC1E24E36300EEFBDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		639124FE1E24E36300EEFBDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		639125051E24E58F00EEFBDF /* DetailPieceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPieceCell.swift; sourceTree = "<group>"; };
+		639125071E24E58F00EEFBDF /* DetailPieceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPieceVC.swift; sourceTree = "<group>"; };
+		639125081E24E58F00EEFBDF /* HomeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
+		639125091E24E58F00EEFBDF /* PreviewImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewImage.swift; sourceTree = "<group>"; };
+		6391250E1E24E5BF00EEFBDF /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		6391250F1E24E5BF00EEFBDF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		639125101E24E5BF00EEFBDF /* ManageContentful.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageContentful.swift; sourceTree = "<group>"; };
+		9D13C55801C72A4EADC45C62 /* Pods-GrayLady.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrayLady.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrayLady/Pods-GrayLady.debug.xcconfig"; sourceTree = "<group>"; };
+		D163C8D0273A18E51D7E08EF /* Pods-GrayLady.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrayLady.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrayLady/Pods-GrayLady.release.xcconfig"; sourceTree = "<group>"; };
+		FD46A05BAE03EDDB6E0BBF56 /* Pods_GrayLady.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrayLady.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		63817D3B1E1E2E950067647D /* Frameworks */ = {
+		639124EC1E24E36300EEFBDF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B5E5A82B52DDF456B44458F /* Pods_Gray_Lady.framework in Frameworks */,
+				2631C9C83057ADBE5B58CC59 /* Pods_GrayLady.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6337FBDA1E1FAE9600A47806 /* Controller */ = {
+		452FF1D35D9FFD633745EAFA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6337FBDB1E1FAEC600A47806 /* HomeTVC.swift */,
-				6337FBE11E1FB2DD00A47806 /* DetailPieceVC.swift */,
+				9D13C55801C72A4EADC45C62 /* Pods-GrayLady.debug.xcconfig */,
+				D163C8D0273A18E51D7E08EF /* Pods-GrayLady.release.xcconfig */,
 			);
-			path = Controller;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		63817D351E1E2E950067647D = {
+		639124E61E24E36300EEFBDF = {
 			isa = PBXGroup;
 			children = (
-				63817D401E1E2E950067647D /* Gray Lady */,
-				63817D3F1E1E2E950067647D /* Products */,
-				E15674C42FD3B6D70102F492 /* Pods */,
-				8B24F013126CE5D10AECD30E /* Frameworks */,
+				639124F11E24E36300EEFBDF /* Gray Lady */,
+				639124F01E24E36300EEFBDF /* Products */,
+				452FF1D35D9FFD633745EAFA /* Pods */,
+				E8AE7618ECCF79CDA38CBE53 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		63817D3F1E1E2E950067647D /* Products */ = {
+		639124F01E24E36300EEFBDF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63817D3E1E1E2E950067647D /* Gray Lady.app */,
+				639124EF1E24E36300EEFBDF /* Gray Lady.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		63817D401E1E2E950067647D /* Gray Lady */ = {
+		639124F11E24E36300EEFBDF /* Gray Lady */ = {
 			isa = PBXGroup;
 			children = (
-				6337FBDA1E1FAE9600A47806 /* Controller */,
-				63C61B221E1E519A001F4505 /* Cell */,
-				63DECCD21E1E362700CBCDDB /* Define.swift */,
-				63817D411E1E2E950067647D /* AppDelegate.swift */,
-				63817D481E1E2E950067647D /* Assets.xcassets */,
-				63817D4D1E1E2E950067647D /* Info.plist */,
-				63B6CCAA1E1F3A470044B42F /* ManageContentful.swift */,
+				639125041E24E58F00EEFBDF /* Cell */,
+				639125061E24E58F00EEFBDF /* Controller */,
+				639124F21E24E36300EEFBDF /* AppDelegate.swift */,
+				6391250E1E24E5BF00EEFBDF /* Define.swift */,
+				6391250F1E24E5BF00EEFBDF /* Extensions.swift */,
+				639125101E24E5BF00EEFBDF /* ManageContentful.swift */,
+				639124F91E24E36300EEFBDF /* Assets.xcassets */,
+				639124FB1E24E36300EEFBDF /* LaunchScreen.storyboard */,
+				639124FE1E24E36300EEFBDF /* Info.plist */,
 			);
-			path = "Gray Lady";
+			name = "Gray Lady";
+			path = GrayLady;
 			sourceTree = "<group>";
 		};
-		63C61B221E1E519A001F4505 /* Cell */ = {
+		639125041E24E58F00EEFBDF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				6337FBDF1E1FB1AB00A47806 /* DetailPieceCell.swift */,
+				639125051E24E58F00EEFBDF /* DetailPieceCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		8B24F013126CE5D10AECD30E /* Frameworks */ = {
+		639125061E24E58F00EEFBDF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				05A29B9CB0A040A4B86FF9E0 /* Pods_Gray_Lady.framework */,
+				639125071E24E58F00EEFBDF /* DetailPieceVC.swift */,
+				639125081E24E58F00EEFBDF /* HomeTVC.swift */,
+				639125091E24E58F00EEFBDF /* PreviewImage.swift */,
 			);
-			name = Frameworks;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		E15674C42FD3B6D70102F492 /* Pods */ = {
+		E8AE7618ECCF79CDA38CBE53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				07F005FFC7686D3B8F884CC0 /* Pods-Gray Lady.debug.xcconfig */,
-				E23375E25BF0D73F93F5E630 /* Pods-Gray Lady.release.xcconfig */,
+				FD46A05BAE03EDDB6E0BBF56 /* Pods_GrayLady.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		63817D3D1E1E2E950067647D /* Gray Lady */ = {
+		639124EE1E24E36300EEFBDF /* Gray Lady */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63817D501E1E2E950067647D /* Build configuration list for PBXNativeTarget "Gray Lady" */;
+			buildConfigurationList = 639125011E24E36300EEFBDF /* Build configuration list for PBXNativeTarget "Gray Lady" */;
 			buildPhases = (
-				4CD47940C02E64629DF314B1 /* [CP] Check Pods Manifest.lock */,
-				63817D3A1E1E2E950067647D /* Sources */,
-				63817D3B1E1E2E950067647D /* Frameworks */,
-				63817D3C1E1E2E950067647D /* Resources */,
-				FAC6FEFEFD6D45F304761301 /* [CP] Embed Pods Frameworks */,
-				BD4E7BE1373173BEE084DD4E /* [CP] Copy Pods Resources */,
+				37B4D935DF3DCE0FC0BA398E /* [CP] Check Pods Manifest.lock */,
+				639124EB1E24E36300EEFBDF /* Sources */,
+				639124EC1E24E36300EEFBDF /* Frameworks */,
+				639124ED1E24E36300EEFBDF /* Resources */,
+				832F4EFD25FC868B0269B040 /* [CP] Embed Pods Frameworks */,
+				DC8DB07729CEF313618BDA06 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Gray Lady";
-			productName = "Gray Lady";
-			productReference = 63817D3E1E1E2E950067647D /* Gray Lady.app */;
+			productName = GrayLady;
+			productReference = 639124EF1E24E36300EEFBDF /* Gray Lady.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		63817D361E1E2E950067647D /* Project object */ = {
+		639124E71E24E36300EEFBDF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = QTScoder;
 				TargetAttributes = {
-					63817D3D1E1E2E950067647D = {
-						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = Z5S4TLR4D3;
+					639124EE1E24E36300EEFBDF = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7CZRA7KNK3;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 63817D391E1E2E950067647D /* Build configuration list for PBXProject "Gray Lady" */;
+			buildConfigurationList = 639124EA1E24E36300EEFBDF /* Build configuration list for PBXProject "Gray Lady" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -157,29 +168,30 @@
 				en,
 				Base,
 			);
-			mainGroup = 63817D351E1E2E950067647D;
-			productRefGroup = 63817D3F1E1E2E950067647D /* Products */;
+			mainGroup = 639124E61E24E36300EEFBDF;
+			productRefGroup = 639124F01E24E36300EEFBDF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				63817D3D1E1E2E950067647D /* Gray Lady */,
+				639124EE1E24E36300EEFBDF /* Gray Lady */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		63817D3C1E1E2E950067647D /* Resources */ = {
+		639124ED1E24E36300EEFBDF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63817D491E1E2E950067647D /* Assets.xcassets in Resources */,
+				639124FD1E24E36300EEFBDF /* LaunchScreen.storyboard in Resources */,
+				639124FA1E24E36300EEFBDF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4CD47940C02E64629DF314B1 /* [CP] Check Pods Manifest.lock */ = {
+		37B4D935DF3DCE0FC0BA398E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -194,22 +206,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		BD4E7BE1373173BEE084DD4E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gray Lady/Pods-Gray Lady-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FAC6FEFEFD6D45F304761301 /* [CP] Embed Pods Frameworks */ = {
+		832F4EFD25FC868B0269B040 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -221,29 +218,57 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gray Lady/Pods-Gray Lady-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrayLady/Pods-GrayLady-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC8DB07729CEF313618BDA06 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrayLady/Pods-GrayLady-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		63817D3A1E1E2E950067647D /* Sources */ = {
+		639124EB1E24E36300EEFBDF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63DECCD31E1E362700CBCDDB /* Define.swift in Sources */,
-				63B6CCAB1E1F3A470044B42F /* ManageContentful.swift in Sources */,
-				63817D421E1E2E950067647D /* AppDelegate.swift in Sources */,
-				6337FBE01E1FB1AB00A47806 /* DetailPieceCell.swift in Sources */,
-				6337FBE21E1FB2DD00A47806 /* DetailPieceVC.swift in Sources */,
-				6337FBDC1E1FAEC600A47806 /* HomeTVC.swift in Sources */,
+				6391250D1E24E58F00EEFBDF /* PreviewImage.swift in Sources */,
+				6391250B1E24E58F00EEFBDF /* DetailPieceVC.swift in Sources */,
+				639125121E24E5BF00EEFBDF /* Extensions.swift in Sources */,
+				639124F31E24E36300EEFBDF /* AppDelegate.swift in Sources */,
+				6391250A1E24E58F00EEFBDF /* DetailPieceCell.swift in Sources */,
+				639125131E24E5BF00EEFBDF /* ManageContentful.swift in Sources */,
+				6391250C1E24E58F00EEFBDF /* HomeTVC.swift in Sources */,
+				639125111E24E5BF00EEFBDF /* Define.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		639124FB1E24E36300EEFBDF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				639124FC1E24E36300EEFBDF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		63817D4E1E1E2E950067647D /* Debug */ = {
+		639124FF1E24E36300EEFBDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -255,10 +280,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -280,16 +308,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		63817D4F1E1E2E950067647D /* Release */ = {
+		639125001E24E36300EEFBDF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -301,10 +329,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -320,70 +351,64 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		63817D511E1E2E950067647D /* Debug */ = {
+		639125021E24E36300EEFBDF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 07F005FFC7686D3B8F884CC0 /* Pods-Gray Lady.debug.xcconfig */;
+			baseConfigurationReference = 9D13C55801C72A4EADC45C62 /* Pods-GrayLady.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = Z5S4TLR4D3;
-				INFOPLIST_FILE = "Gray Lady/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				DEVELOPMENT_TEAM = 7CZRA7KNK3;
+				INFOPLIST_FILE = GrayLady/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "qts.com.vn.Gray-Lady";
+				PRODUCT_BUNDLE_IDENTIFIER = qts.com.vn.GrayLady;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
-				TARGETED_DEVICE_FAMILY = 1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		63817D521E1E2E950067647D /* Release */ = {
+		639125031E24E36300EEFBDF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E23375E25BF0D73F93F5E630 /* Pods-Gray Lady.release.xcconfig */;
+			baseConfigurationReference = D163C8D0273A18E51D7E08EF /* Pods-GrayLady.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = Z5S4TLR4D3;
-				INFOPLIST_FILE = "Gray Lady/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				DEVELOPMENT_TEAM = 7CZRA7KNK3;
+				INFOPLIST_FILE = GrayLady/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "qts.com.vn.Gray-Lady";
+				PRODUCT_BUNDLE_IDENTIFIER = qts.com.vn.GrayLady;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
-				TARGETED_DEVICE_FAMILY = 1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		63817D391E1E2E950067647D /* Build configuration list for PBXProject "Gray Lady" */ = {
+		639124EA1E24E36300EEFBDF /* Build configuration list for PBXProject "Gray Lady" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				63817D4E1E1E2E950067647D /* Debug */,
-				63817D4F1E1E2E950067647D /* Release */,
+				639124FF1E24E36300EEFBDF /* Debug */,
+				639125001E24E36300EEFBDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63817D501E1E2E950067647D /* Build configuration list for PBXNativeTarget "Gray Lady" */ = {
+		639125011E24E36300EEFBDF /* Build configuration list for PBXNativeTarget "Gray Lady" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				63817D511E1E2E950067647D /* Debug */,
-				63817D521E1E2E950067647D /* Release */,
+				639125021E24E36300EEFBDF /* Debug */,
+				639125031E24E36300EEFBDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 63817D361E1E2E950067647D /* Project object */;
+	rootObject = 639124E71E24E36300EEFBDF /* Project object */;
 }

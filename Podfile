@@ -1,13 +1,8 @@
-
 platform :ios, '9.0'
-
-target 'Gray Lady' do
-
-use_frameworks!
-
-pod 'Contentful'
-pod 'SDWebImage'
-
-
+target 'GrayLady' do
+    use_frameworks!
+    pod 'Contentful'
+    pod 'Kingfisher'
+    pod 'INSPhotoGallery'
 
 end
