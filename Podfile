@@ -1,5 +1,5 @@
 platform :ios, '9.0'
-target 'GrayLady' do
+target 'Gray Lady' do
     use_frameworks!
     pod 'Contentful'
     pod 'Kingfisher'

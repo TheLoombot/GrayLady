@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2631C9C83057ADBE5B58CC59 /* Pods_GrayLady.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD46A05BAE03EDDB6E0BBF56 /* Pods_GrayLady.framework */; };
 		639124F31E24E36300EEFBDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639124F21E24E36300EEFBDF /* AppDelegate.swift */; };
 		639124FA1E24E36300EEFBDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 639124F91E24E36300EEFBDF /* Assets.xcassets */; };
 		639124FD1E24E36300EEFBDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 639124FB1E24E36300EEFBDF /* LaunchScreen.storyboard */; };
@@ -18,9 +17,11 @@
 		639125111E24E5BF00EEFBDF /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391250E1E24E5BF00EEFBDF /* Define.swift */; };
 		639125121E24E5BF00EEFBDF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391250F1E24E5BF00EEFBDF /* Extensions.swift */; };
 		639125131E24E5BF00EEFBDF /* ManageContentful.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639125101E24E5BF00EEFBDF /* ManageContentful.swift */; };
+		7629EA0B08C012AAA36D03A6 /* Pods_Gray_Lady.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B40D91B6C9ECC1919284125 /* Pods_Gray_Lady.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		607A0718AB78BF86DFDA39F9 /* Pods-Gray Lady.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gray Lady.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gray Lady/Pods-Gray Lady.release.xcconfig"; sourceTree = "<group>"; };
 		639124EF1E24E36300EEFBDF /* Gray Lady.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gray Lady.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		639124F21E24E36300EEFBDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		639124F91E24E36300EEFBDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -33,6 +34,8 @@
 		6391250E1E24E5BF00EEFBDF /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		6391250F1E24E5BF00EEFBDF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		639125101E24E5BF00EEFBDF /* ManageContentful.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageContentful.swift; sourceTree = "<group>"; };
+		764421F8AFD8E0C963F4456C /* Pods-Gray Lady.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gray Lady.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gray Lady/Pods-Gray Lady.debug.xcconfig"; sourceTree = "<group>"; };
+		7B40D91B6C9ECC1919284125 /* Pods_Gray_Lady.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gray_Lady.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D13C55801C72A4EADC45C62 /* Pods-GrayLady.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrayLady.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrayLady/Pods-GrayLady.debug.xcconfig"; sourceTree = "<group>"; };
 		D163C8D0273A18E51D7E08EF /* Pods-GrayLady.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrayLady.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrayLady/Pods-GrayLady.release.xcconfig"; sourceTree = "<group>"; };
 		FD46A05BAE03EDDB6E0BBF56 /* Pods_GrayLady.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrayLady.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2631C9C83057ADBE5B58CC59 /* Pods_GrayLady.framework in Frameworks */,
+				7629EA0B08C012AAA36D03A6 /* Pods_Gray_Lady.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +58,8 @@
 			children = (
 				9D13C55801C72A4EADC45C62 /* Pods-GrayLady.debug.xcconfig */,
 				D163C8D0273A18E51D7E08EF /* Pods-GrayLady.release.xcconfig */,
+				764421F8AFD8E0C963F4456C /* Pods-Gray Lady.debug.xcconfig */,
+				607A0718AB78BF86DFDA39F9 /* Pods-Gray Lady.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				FD46A05BAE03EDDB6E0BBF56 /* Pods_GrayLady.framework */,
+				7B40D91B6C9ECC1919284125 /* Pods_Gray_Lady.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -155,7 +161,7 @@
 				TargetAttributes = {
 					639124EE1E24E36300EEFBDF = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 7CZRA7KNK3;
+						DevelopmentTeam = Z5S4TLR4D3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -218,7 +224,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrayLady/Pods-GrayLady-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gray Lady/Pods-Gray Lady-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC8DB07729CEF313618BDA06 /* [CP] Copy Pods Resources */ = {
@@ -233,7 +239,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrayLady/Pods-GrayLady-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gray Lady/Pods-Gray Lady-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -361,10 +367,10 @@
 		};
 		639125021E24E36300EEFBDF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D13C55801C72A4EADC45C62 /* Pods-GrayLady.debug.xcconfig */;
+			baseConfigurationReference = 764421F8AFD8E0C963F4456C /* Pods-Gray Lady.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7CZRA7KNK3;
+				DEVELOPMENT_TEAM = Z5S4TLR4D3;
 				INFOPLIST_FILE = GrayLady/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = qts.com.vn.GrayLady;
@@ -375,10 +381,10 @@
 		};
 		639125031E24E36300EEFBDF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D163C8D0273A18E51D7E08EF /* Pods-GrayLady.release.xcconfig */;
+			baseConfigurationReference = 607A0718AB78BF86DFDA39F9 /* Pods-Gray Lady.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7CZRA7KNK3;
+				DEVELOPMENT_TEAM = Z5S4TLR4D3;
 				INFOPLIST_FILE = GrayLady/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = qts.com.vn.GrayLady;
