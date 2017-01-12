@@ -46,9 +46,8 @@ class ManageContentful {
 
     func getPiecefromBriefing(_ entryBriefing: Entry) -> [Entry] {
         var arr = [Entry]()
-        if let arrDate = entryBriefing.fields["piece"] as? [Entry] {
-            arr = arrDate
-
+        if let arrData = entryBriefing.fields["piece"] as? [Entry] {
+            arr = arrData
         }
         return arr
 

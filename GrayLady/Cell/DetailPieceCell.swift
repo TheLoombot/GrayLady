@@ -10,7 +10,7 @@ import UIKit
 import TTTAttributedLabel
 import Contentful
 
-class DetailPieceCell: UICollectionViewCell {
+class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
 
     typealias actionBlock = () ->()
 
@@ -69,7 +69,8 @@ class DetailPieceCell: UICollectionViewCell {
 
     func setupView() {
         backgroundColor = .white
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapcontentView))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapcontentView(gestureReconizer:)))
+        tap.delegate = self
         scrollView.addGestureRecognizer(tap)
         tap.cancelsTouchesInView = false
         addSubview(scrollView)
@@ -100,8 +101,7 @@ class DetailPieceCell: UICollectionViewCell {
         heightImg?.isActive = true
 
         lblcaptionImg.topAnchor.constraint(equalTo: imgView.bottomAnchor, constant: 10).isActive = true
-        lblcaptionImg.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 10).isActive = true
-        lblcaptionImg.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant:  -20).isActive = true
+        scrollView.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: lblcaptionImg)
 
         lblcontentPiece.topAnchor.constraint(equalTo: lblcaptionImg.bottomAnchor, constant: 10).isActive = true
         lblcontentPiece.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant:  10).isActive = true
@@ -116,7 +116,7 @@ class DetailPieceCell: UICollectionViewCell {
         handTapImg!()
     }
 
-    func handleTapcontentView() {
+    func handleTapcontentView(gestureReconizer: UITapGestureRecognizer) {
          handTapContent!()
     }
 
@@ -135,6 +135,25 @@ class DetailPieceCell: UICollectionViewCell {
             }
         }
         imgView.kf.setImage(with: URL.init(string: str))
+    }
+
+    // MARK: - UIGestureRecognizerDelegate
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+
+        if (touch.view?.isKind(of: TTTAttributedLabel.classForCoder()))! {
+           let point = touch.location(in: lblcontentPiece)
+            print(point)
+            print(lblcontentPiece.containslink(at: point))
+            if lblcontentPiece.containslink(at: point) {
+                return false
+            }else {
+                return true
+            }
+
+        }else {
+            return true
+        }
     }
 
 

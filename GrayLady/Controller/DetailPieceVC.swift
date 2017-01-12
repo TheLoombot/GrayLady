@@ -13,7 +13,7 @@ import TTTAttributedLabel
 import SafariServices
 
 private let cellId = "DetailPieceCell"
-class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, TTTAttributedLabelDelegate, UIGestureRecognizerDelegate {
+class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, TTTAttributedLabelDelegate {
 
     var entry: Entry?
     var arrayData =  [Any]()
@@ -98,6 +98,7 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
        cell.lblcontentPiece.delegate = self
        let info = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(entry)
        cell.configCell(entry: entry)
+    
 
         cell.handTapContent = {
 
@@ -163,11 +164,14 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
 
 
     //MARK: - TTTAttributedLabelDelegate
+
     func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
         let safari = SFSafariViewController(url: url)
         safari.modalPresentationStyle = .overFullScreen
         present(safari, animated: true, completion: nil)
     }
+
+    
 
 
 
