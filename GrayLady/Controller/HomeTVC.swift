@@ -12,14 +12,17 @@ import Contentful
 class HomeTVC: UITableViewController {
 
     var arrayData = [Entry]()
+    var isFirstLoad = true
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         let refeshController = UIRefreshControl()
-        refeshController.setText()
+        refeshController.setText(isFirstload: true)
         refeshController.addTarget(self, action: #selector(hanleRefresh), for: .valueChanged)
         self.refreshControl = refeshController
+        refeshController.beginRefreshing()
         hanleRefresh()
     }
 
@@ -28,7 +31,8 @@ class HomeTVC: UITableViewController {
     }
 
     func hanleRefresh(){
-        refreshControl?.setTextRefreshing()
+        refreshControl?.setText(isFirstload: isFirstLoad)
+
         ManageContentful.sharedInstance.getEntryTypeBriefing { (arr) in
             if let arr = arr {
                 self.arrayData = arr
@@ -36,7 +40,8 @@ class HomeTVC: UITableViewController {
                     self.tableView.reloadData()
                     OperationQueue.current?.addOperation({
                         self.refreshControl?.endRefreshing()
-                        self.refreshControl?.setText()
+                        self.refreshControl?.setTextRefreshing(isFirstload: self.isFirstLoad)
+                        self.isFirstLoad = false
                     })
 
 
@@ -46,7 +51,8 @@ class HomeTVC: UITableViewController {
                 print("error")
                 OperationQueue.current?.addOperation({
                     self.refreshControl?.endRefreshing()
-                    self.refreshControl?.setText()
+                    self.refreshControl?.setText(isFirstload: self.isFirstLoad)
+                    self.isFirstLoad = false
                 })
 
             }
@@ -61,6 +67,7 @@ class HomeTVC: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return arrayData.count
     }
 
@@ -69,6 +76,8 @@ class HomeTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //        let cellLoading = LoadingCell.init(style: .default, reuseIdentifier: "LoadingCell")
+        //        return cellLoading
         let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "Cell")
         let entry = arrayData[indexPath.row]
 
@@ -81,9 +90,8 @@ class HomeTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detail = DetailPieceVC(entry: arrayData[indexPath.row])
-        navigationController?.pushViewController(detail, animated: true)
-        
+                let detail = DetailPieceVC(entry: arrayData[indexPath.row])
+                navigationController?.pushViewController(detail, animated: true)        
     }
     
     

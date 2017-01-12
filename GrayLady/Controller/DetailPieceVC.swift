@@ -8,30 +8,24 @@
 
 import UIKit
 import Contentful
-import INSPhotoGallery
 import Kingfisher
+import TTTAttributedLabel
+import SafariServices
 
 private let cellId = "DetailPieceCell"
-class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
+class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, TTTAttributedLabelDelegate, UIGestureRecognizerDelegate {
 
     var entry: Entry?
     var arrayData =  [Any]()
-    lazy var photos = [INSPhotoViewable]()
 
     convenience init(entry: Entry) {
         self.init()
         self.entry = entry
         arrayData = entry.fields["piece"] as! [Any]
-
-        for data in arrayData {
-            let tempData = data as! Entry
-            let strigUrl = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(tempData).urlImg
-            let photo = INSPhoto.init(imageURL: URL.init(string: strigUrl), thumbnailImageURL: nil)
-            photos.append(photo)
-
-        }
-
     }
+
+    let backGroundImgView = UIView()
+
 
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -46,6 +40,8 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.isPagingEnabled = true
         cv.clipsToBounds = true
+        cv.allowsSelection = true
+        
         return cv
     }()
 
@@ -60,10 +56,11 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
     }
 
     func setupLayoutCollectionview() {
-        collectionView.topAnchor.constraint(equalTo: self.topLayoutGuide.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.bottomAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+
     }
 
     //MARK: - collection View
@@ -86,58 +83,98 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        if indexPath.item < arrayData.count - 1 {
+        if indexPath.item < self.arrayData.count - 1 {
             let nextIndexPath = IndexPath(row: indexPath.item + 1, section: 0)
-            collectionView.scrollToItem(at: nextIndexPath, at: UICollectionViewScrollPosition(), animated: true)
+            self.collectionView.scrollToItem(at: nextIndexPath, at: UICollectionViewScrollPosition(), animated: true)
         }else {
+            _ = self.navigationController?.popViewController(animated: true)
 
         }
+
     }
+
 
     func configCell(_ cell: DetailPieceCell, indexPath: IndexPath, entry: Entry) {
-        cell.lblcaptionImg.text = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(entry).imgCaption
-        cell.lblcontentPiece.text = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(entry).pieceContent
-        let str = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(entry).urlImg
-        cell.lblcontentPiece.text!.delectedUrl()
-        cell.imgView.kf.setImage(with: URL(string: str), placeholder: nil, options: nil, progressBlock: nil) { (img, err, cache, url) in
-            if err == nil  {
-                if let img = img {
-                    let aspect = img.size.height / img.size.width
-                    cell.heightImg?.constant = aspect * UIScreen.main.bounds.width
-                }
+       cell.lblcontentPiece.delegate = self
+       let info = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(entry)
+       cell.configCell(entry: entry)
 
-            }
-
-        }
         cell.handTapContent = {
-            if indexPath.item < self.arrayData.count - 1 {
-                let nextIndexPath = IndexPath(row: indexPath.item + 1, section: 0)
-                self.collectionView.scrollToItem(at: nextIndexPath, at: UICollectionViewScrollPosition(), animated: true)
-            }else {
-                _ = self.navigationController?.popViewController(animated: true)
 
-            }
+                if indexPath.item < self.arrayData.count - 1 {
+                    let nextIndexPath = IndexPath(row: indexPath.item + 1, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndexPath, at: UICollectionViewScrollPosition(), animated: true)
+                }else {
+                    _ = self.navigationController?.popViewController(animated: true)
+                    
+                }
 
 
 
         }
+
         cell.handTapImg = {
+            self.backGroundImgView.frame = self.view.frame
+            self.backGroundImgView.backgroundColor = .clear
 
-            let galleryPreview = INSPhotosViewController(photos: self.photos, initialPhoto: self.photos[indexPath.item] as INSPhotoViewable?, referenceView: cell)
+            if let startFrame = cell.imgView.superview?.convert(cell.imgView.frame, to: nil) {
+                let preView = PreviewImage.init(info: info.infoImg)
 
-            galleryPreview.referenceViewForPhotoWhenDismissingHandler = { [weak self] photo in
-                if let index = self?.photos.index(where: {$0 === photo}) {
-                    let indexPath = IndexPath.init(row: index, section: 0)
-                    return self?.collectionView.cellForItem(at: indexPath) as? DetailPieceCell
+                self.backGroundImgView.frame = self.view.frame
+                self.view.addSubview(self.backGroundImgView)
+
+                preView.frame = startFrame
+                self.backGroundImgView.addSubview(preView)
+                self.navigationController?.navigationBar.isHidden = true
+
+
+
+                UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: { () -> Void in
+                    preView.frame = self.view.frame
+                    preView.scrollView.frame = self.view.frame
+                    preView.imgView.frame = CGRect(x: 0, y: 0, width: self.view.frame.height / preView.imgInfo.aspectImg(), height: self.view.frame.size.height)
+                    preView.scrollView.contentSize = preView.imgView.frame.size
+                    let centerXoffset = (preView.scrollView.contentSize.width - preView.scrollView.frame.width) / 2
+                    preView.scrollView.setContentOffset(CGPoint.init(x: centerXoffset, y: 0), animated: false)
+
+                }, completion: { (didComplete) -> Void in
+                    self.backGroundImgView.backgroundColor = .black
+                })
+
+                preView.hadleDismissTapImg = {
+                    self.backGroundImgView.backgroundColor = .clear
+
+                    if let startFrame = cell.imgView.superview?.convert(cell.imgView.frame, to: nil) {
+                        UIView.animate(withDuration: 0.75, animations: { () -> Void in
+                            preView.imgView.frame = startFrame
+                             preView.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                        }, completion: { (didComplete) -> Void in
+                            preView.removeFromSuperview()
+                            self.backGroundImgView.removeFromSuperview()
+                            self.navigationController?.navigationBar.isHidden = false
+                            
+                        })
+                        
+                    }
                 }
-                return nil
             }
-            self.present(galleryPreview, animated: true, completion: nil)
-            
-            
         }
     }
+
+
+    //MARK: - TTTAttributedLabelDelegate
+    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
+        let safari = SFSafariViewController(url: url)
+        safari.modalPresentationStyle = .overFullScreen
+        present(safari, animated: true, completion: nil)
+    }
+
+
+
+
+    
+    
+    
     
 }
 

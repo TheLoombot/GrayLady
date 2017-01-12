@@ -14,7 +14,7 @@ class ManageContentful {
 
     func getEntryTypeBriefing (_ completer:@escaping ([Entry]?) -> Void) {
 
-    _ = client.fetchEntries(matching: [Constrant.keyAPI.content_type : "briefing"]) { (resulft) in
+        _ = client.fetchEntries(matching: [Constrant.keyAPI.content_type : "briefing"]) { (resulft) in
 
             switch resulft {
             case let .success(entry):
@@ -28,9 +28,6 @@ class ManageContentful {
                 completer(nil)
             }
         }
-
-
-        
     }
 
     func getTitleAndAuthor(_ entryBriefing: Entry) ->(title: String, author: String) {
@@ -57,10 +54,12 @@ class ManageContentful {
 
     }
 
-    func getInfoPiece_fromBriefing(_ entry: Entry) -> (imgCaption: String, pieceContent: String, urlImg: String) {
+    func getInfoPiece_fromBriefing(_ entry: Entry) -> (imgCaption: String, pieceContent: String, infoImg: InfoImage) {
         var imageCap = ""
         var pieceText = ""
-        var url_Img = ""
+
+        let info = InfoImage.init(url: "", height: 0, width: 0)
+
 
         if let imgCapTemp = entry.fields["imageCaption"] as? String {
             imageCap = imgCapTemp
@@ -73,18 +72,32 @@ class ManageContentful {
         if let assetUrl = entry.fields["image"] as? Asset {
             if let dict = assetUrl.fields["file"] as? NSDictionary {
                 if let str = dict["url"] as? String {
-                    url_Img = "http:" + str
+                    info.url = "http:" + str
+                }
+
+                if let details = dict["details"] as? NSDictionary {
+                    if let image = details["image"] as? NSDictionary {
+
+                        if let heightImg = image["height"] as? CGFloat {
+
+                            info.height = heightImg
+                        }
+                        if let widthImg = image["width"] as? CGFloat {
+                            info.width = widthImg
+                        }
+                        
+                    }
                 }
             }
-        }       
-
-        return(imageCap, pieceText, url_Img)
+        }
+        
+        return(imageCap, pieceText, info)
         
         
     }
-
-
-
-
-
+    
+    
+    
+    
+    
 }

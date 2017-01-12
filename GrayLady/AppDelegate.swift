@@ -19,10 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
         let navi = UINavigationController(rootViewController: HomeTVC())
-        //        navi.hidesBarsOnSwipe = true
         window?.rootViewController = navi
         return true
-
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

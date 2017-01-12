@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '160F3D2B181465FD6DEC4E9916DF2092'
-               BlueprintName = 'INSPhotoGallery-INSPhotoGallery'
+               BlueprintIdentifier = '059CABDB2086913A13FDEABC898F19DD'
+               BlueprintName = 'TTTAttributedLabel'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'INSPhotoGallery.bundle'>
+               BuildableName = 'TTTAttributedLabel.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

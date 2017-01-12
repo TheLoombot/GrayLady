@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import TTTAttributedLabel
+import Contentful
 
 class DetailPieceCell: UICollectionViewCell {
 
@@ -14,7 +16,7 @@ class DetailPieceCell: UICollectionViewCell {
 
     var handTapImg: actionBlock?
     var handTapContent: actionBlock?
-
+   
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -52,11 +54,12 @@ class DetailPieceCell: UICollectionViewCell {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont().fontApp(11)
         lbl.numberOfLines = 0
+
         return lbl
     }()
 
-    lazy var lblcontentPiece: UILabel = {
-        let lbl = UILabel()
+    lazy var lblcontentPiece: TTTAttributedLabel = {
+        let lbl = TTTAttributedLabel.init(frame: .zero)
         lbl.textColor = UIColor.black
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont().fontApp(24)
@@ -66,10 +69,13 @@ class DetailPieceCell: UICollectionViewCell {
 
     func setupView() {
         backgroundColor = .white
-        scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapcontentView)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapcontentView))
+        scrollView.addGestureRecognizer(tap)
+        tap.cancelsTouchesInView = false
         addSubview(scrollView)
+
         // fix collectionView didSelectItemAtIndexPath
-//        scrollView.userInteractionEnabled = false
+//        scrollView.isUserInteractionEnabled = false
 //        contentView.addGestureRecognizer(scrollView.panGestureRecognizer)
 
         layoutScrollview()
@@ -81,18 +87,16 @@ class DetailPieceCell: UICollectionViewCell {
         scrollView.addSubview(lblcaptionImg)
         scrollView.addSubview(lblcontentPiece)
 
-        scrollView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        addConstraintsWithFormat("H:|[v0]|", views: scrollView)
+        addConstraintsWithFormat("V:|[v0]|", views: scrollView)
         scrollView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
         scrollView.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
-        scrollView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        scrollView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
 
 
         imgView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         imgView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
         imgView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        heightImg = imgView.heightAnchor.constraint(equalToConstant: 0)
+        heightImg = imgView.heightAnchor.constraint(equalToConstant: 150)
         heightImg?.isActive = true
 
         lblcaptionImg.topAnchor.constraint(equalTo: imgView.bottomAnchor, constant: 10).isActive = true
@@ -113,8 +117,26 @@ class DetailPieceCell: UICollectionViewCell {
     }
 
     func handleTapcontentView() {
-        print("tapcontent")
-        handTapContent!()
+         handTapContent!()
     }
+
+    func configCell(entry: Entry) {
+        let info = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(entry)
+        let contentText = info.pieceContent.delectedUrl()
+        self.lblcaptionImg.text = info.imgCaption
+        self.lblcontentPiece.text = contentText.1
+        self.heightImg?.constant = info.infoImg.aspectImg() * UIScreen.main.bounds.width
+        let str = info.infoImg.url
+        for diectLink in contentText.0 {
+            if let range = contentText.1.range(of: diectLink.strShow) {
+                print(range)
+                lblcontentPiece.addLink(to: URL.init(string: diectLink.url), with:(lblcontentPiece.text!.nsRange(fromRange: range)))
+
+            }
+        }
+        imgView.kf.setImage(with: URL.init(string: str))
+    }
+
+
 
 }

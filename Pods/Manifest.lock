@@ -3,7 +3,6 @@ PODS:
     - Decodable (~> 0.5)
     - Interstellar-Contentful (~> 2.1.0)
   - Decodable (0.5)
-  - INSPhotoGallery (1.1.0)
   - Interstellar-Contentful (2.1.0):
     - Interstellar-Contentful/Core (= 2.1.0)
     - Interstellar-Contentful/Warpdrive (= 2.1.0)
@@ -11,19 +10,20 @@ PODS:
   - Interstellar-Contentful/Warpdrive (2.1.0):
     - Interstellar-Contentful/Core
   - Kingfisher (3.2.4)
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - Contentful
-  - INSPhotoGallery
   - Kingfisher
+  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   Contentful: 7233a6a1759b53142bc06faef163d8b1fcc8496a
   Decodable: 7c90acc68d357b71d0d6efc120faf9c53c644b7e
-  INSPhotoGallery: 81056815e82fb7ee6f271ca017db5985b4f96d0a
   Interstellar-Contentful: f0377c4f91f7de3ac8b2a4a46ea13bd4ebde7e91
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 6d92cd637dad950aac03588e80bbff9556c3cc9d
+PODFILE CHECKSUM: db359b109594e83ae83d3e15a78b8a30cc36bccb
 
 COCOAPODS: 1.1.1
