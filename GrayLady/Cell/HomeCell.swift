@@ -25,7 +25,6 @@ class HomeCell: UITableViewCell {
         imgV.translatesAutoresizingMaskIntoConstraints = false
         imgV.contentMode = .scaleAspectFill
         imgV.clipsToBounds = true
-
         return imgV
     }()
 
@@ -61,6 +60,7 @@ class HomeCell: UITableViewCell {
     }
 
     func setupViews() {
+        self.selectionStyle = .none
         addSubview(imgView)
         addSubview(lblTitle)
         addSubview(lblAuthor)

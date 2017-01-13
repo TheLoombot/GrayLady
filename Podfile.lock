@@ -10,20 +10,20 @@ PODS:
   - Interstellar-Contentful/Warpdrive (2.1.0):
     - Interstellar-Contentful/Core
   - Kingfisher (3.2.4)
-  - TTTAttributedLabel (2.0.0)
+  - MarkdownKit (1.2)
 
 DEPENDENCIES:
   - Contentful
   - Kingfisher
-  - TTTAttributedLabel
+  - MarkdownKit
 
 SPEC CHECKSUMS:
   Contentful: 7233a6a1759b53142bc06faef163d8b1fcc8496a
   Decodable: 7c90acc68d357b71d0d6efc120faf9c53c644b7e
   Interstellar-Contentful: f0377c4f91f7de3ac8b2a4a46ea13bd4ebde7e91
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
-  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  MarkdownKit: 5ff9659d414f9a677b62667f4507766369d32129
 
-PODFILE CHECKSUM: db359b109594e83ae83d3e15a78b8a30cc36bccb
+PODFILE CHECKSUM: 1097ca21903755ab7a6f95fe2bb2f018b43014cc
 
 COCOAPODS: 1.1.1

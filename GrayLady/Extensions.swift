@@ -80,37 +80,6 @@ extension String {
         return NSRange(location: location, length: length)
     }
 
-
-    func delectedUrl() -> ([FormatUrl], String) {
-
-        var strRemoveFormat = ""
-
-        var httpFormat = [FormatUrl]()
-        let array = self.components(separatedBy: "[")
-
-        for str in array {
-            if str == "" || str.contains("]") == false {
-                strRemoveFormat += str
-                continue
-            }
-            let strTem = "[" + str
-            let  subStr = strTem.between("[", "]")
-            let httpSub = str.between("(", ")")
-            if subStr != nil && httpSub != nil {
-                let formatUrl = FormatUrl(strShow: subStr!, url: httpSub!)
-                httpFormat.append(formatUrl)
-                if let index = str.index(of: ")") {
-                    strRemoveFormat += subStr! + str.substring((index + 1) ..< (str.characters.count))
-                }else {
-                    strRemoveFormat += str
-                }
-            }
-        }
-        return (httpFormat, strRemoveFormat)
-    }
-
-
-
 }
 
 // MARK: - UIVIew

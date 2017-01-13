@@ -4,7 +4,8 @@ target 'Gray Lady' do
     use_frameworks!
     pod 'Contentful'
     pod 'Kingfisher'
+    pod 'MarkdownKit'
 
-    pod 'TTTAttributedLabel'
+  
 
 end

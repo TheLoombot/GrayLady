@@ -88,12 +88,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Decodable/Decodable.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Interstellar-Contentful/Interstellar_Contentful.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Kingfisher/Kingfisher.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/TTTAttributedLabel/TTTAttributedLabel.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MarkdownKit/MarkdownKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Contentful/Contentful.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Decodable/Decodable.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Interstellar-Contentful/Interstellar_Contentful.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Kingfisher/Kingfisher.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/TTTAttributedLabel/TTTAttributedLabel.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MarkdownKit/MarkdownKit.framework"
 fi

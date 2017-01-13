@@ -16,7 +16,6 @@ class HomeTVC: UITableViewController {
     var arrayData = [Entry]()
     var isFirstLoad = true
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
@@ -89,7 +88,6 @@ class HomeTVC: UITableViewController {
         let hegithTitle = info.title.heightWithConstrainedWidth(width: widthScreen - 20, font: UIFont().fontApp(16))
         let heightAuthor = author.heightWithConstrainedWidth(width: widthScreen - 20, font: UIFont().fontApp(9))
         return heightImage + hegithTitle + heightAuthor + 10 + 5 + 5 + 1
-
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

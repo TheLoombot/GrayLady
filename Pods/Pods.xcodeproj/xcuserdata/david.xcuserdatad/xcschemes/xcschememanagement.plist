@@ -24,12 +24,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Gray Lady.xcscheme</key>
+		<key>MarkdownKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TTTAttributedLabel.xcscheme</key>
+		<key>Pods-Gray Lady.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,17 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>059CABDB2086913A13FDEABC898F19DD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4DEFC7CE86B6F423C0DC24820626CAF0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C44E49265773BEC3059717AE602A0296</key>
+		<key>58085D44374CB8AE95E3C58E2753C9C2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>929B2685DB1678B8315BA348D337CEBF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

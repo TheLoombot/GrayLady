@@ -7,19 +7,19 @@
 //
 
 import UIKit
-import TTTAttributedLabel
 import Contentful
+import MarkdownKit
+
 
 class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
 
     typealias actionBlock = () ->()
-
     var handTapImg: actionBlock?
     var handTapContent: actionBlock?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        setupViews()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -27,6 +27,8 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     }
 
     var heightImg : NSLayoutConstraint?
+
+
 
     lazy var imgView: UIImageView = {
         let imgV = UIImageView()
@@ -59,31 +61,22 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
 
         return lbl
     }()
-
-    lazy var lblcontentPiece: TTTAttributedLabel = {
-        let lbl = TTTAttributedLabel.init(frame: .zero)
-        lbl.textColor = UIColor.black
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont().fontApp(24)
-        lbl.numberOfLines = 0
-        lbl.linkAttributes = [NSForegroundColorAttributeName: UIColor().colorLink()]
-        lbl.activeLinkAttributes = [NSForegroundColorAttributeName: UIColor.black]
-
-        return lbl
+    lazy var txvContent: UITextView = {
+        let txv = UITextView()
+        txv.isScrollEnabled = false
+        txv.isEditable = false
+        txv.translatesAutoresizingMaskIntoConstraints = false
+        txv.linkTextAttributes = [NSForegroundColorAttributeName: UIColor().colorLink()]
+        return txv
     }()
 
-    func setupView() {
+    func setupViews() {
         backgroundColor = .white
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapcontentView(gestureReconizer:)))
         tap.delegate = self
         scrollView.addGestureRecognizer(tap)
         tap.cancelsTouchesInView = false
         addSubview(scrollView)
-
-        // fix collectionView didSelectItemAtIndexPath
-        //        scrollView.isUserInteractionEnabled = false
-        //        contentView.addGestureRecognizer(scrollView.panGestureRecognizer)
-
         layoutScrollview()
     }
 
@@ -91,7 +84,7 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
 
         scrollView.addSubview(imgView)
         scrollView.addSubview(lblcaptionImg)
-        scrollView.addSubview(lblcontentPiece)
+        scrollView.addSubview(txvContent)
 
         addConstraintsWithFormat("H:|[v0]|", views: scrollView)
         addConstraintsWithFormat("V:|[v0]|", views: scrollView)
@@ -109,10 +102,10 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         scrollView.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: lblcaptionImg)
         lblcaptionImg.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant:  -20).isActive = true
 
-        lblcontentPiece.topAnchor.constraint(equalTo: lblcaptionImg.bottomAnchor, constant: 10).isActive = true
-        lblcontentPiece.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant:  10).isActive = true
-        lblcontentPiece.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -20).isActive = true
-        lblcontentPiece.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        txvContent.topAnchor.constraint(equalTo: lblcaptionImg.bottomAnchor, constant: 7).isActive = true
+        txvContent.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant:  7).isActive = true
+        txvContent.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -14).isActive = true
+        txvContent.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
 
 
     }
@@ -128,41 +121,12 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
 
     func configCell(entry: Entry) {
         let info = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(entry)
-        let contentText = info.pieceContent.delectedUrl()
         self.lblcaptionImg.text = info.imgCaption
-        self.lblcontentPiece.text = contentText.1
+        let markdown = MarkdownParser.init(font: UIFont().fontApp(24), automaticLinkDetectionEnabled: false)
+        txvContent.attributedText = markdown.parse(info.pieceContent)
         self.heightImg?.constant = info.infoImg.aspectImg() * UIScreen.main.bounds.width
         let str = info.infoImg.url
-        for diectLink in contentText.0 {
-            if let range = contentText.1.range(of: diectLink.strShow) {
-                print(range)
-
-                lblcontentPiece.addLink(to: URL.init(string: diectLink.url), with:(lblcontentPiece.text!.nsRange(fromRange: range)))
-
-            }
-        }
         imgView.kf.setImage(with: URL.init(string: str))
     }
-
-    // MARK: - UIGestureRecognizerDelegate
-
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-
-        if (touch.view?.isKind(of: TTTAttributedLabel.classForCoder()))! {
-            let point = touch.location(in: lblcontentPiece)
-            print(point)
-            print(lblcontentPiece.containslink(at: point))
-            if lblcontentPiece.containslink(at: point) {
-                return false
-            }else {
-                return true
-            }
-            
-        }else {
-            return true
-        }
-    }
-    
-    
     
 }

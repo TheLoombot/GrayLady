@@ -9,11 +9,10 @@
 import UIKit
 import Contentful
 import Kingfisher
-import TTTAttributedLabel
 import SafariServices
 
 private let cellId = "DetailPieceCell"
-class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, TTTAttributedLabelDelegate {
+class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITextViewDelegate {
 
     var entry: Entry?
     var arrayData =  [Any]()
@@ -62,7 +61,6 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         collectionView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-
     }
 
     //MARK: - collection View
@@ -84,22 +82,11 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.item < self.arrayData.count - 1 {
-            let nextIndexPath = IndexPath(row: indexPath.item + 1, section: 0)
-            self.collectionView.scrollToItem(at: nextIndexPath, at: UICollectionViewScrollPosition(), animated: true)
-        }else {
-            _ = self.navigationController?.popViewController(animated: true)
-
-        }
-
-    }
-
-
     func configCell(_ cell: DetailPieceCell, indexPath: IndexPath, entry: Entry) {
-        cell.lblcontentPiece.delegate = self
+
         let info = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(entry)
         cell.configCell(entry: entry)
+        cell.txvContent.delegate = self
 
 
         cell.handTapContent = {
@@ -111,9 +98,6 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
                 _ = self.navigationController?.popViewController(animated: true)
 
             }
-
-
-
         }
 
         cell.handTapImg = {
@@ -136,7 +120,7 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
                     preView.scrollView.contentSize = preView.imgView.frame.size
                     let centerXoffset = (preView.scrollView.contentSize.width - preView.scrollView.frame.width) / 2
                     preView.scrollView.setContentOffset(CGPoint.init(x: centerXoffset, y: 0), animated: false)
-
+                    
                 }, completion: { (didComplete) -> Void in
                     self.backGroundImgView.backgroundColor = .black
                 })
@@ -153,26 +137,23 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
                             preView.removeFromSuperview()
                             self.backGroundImgView.removeFromSuperview()
                         })
-//                        UIView.animate(withDuration: 0.75, animations: { () -> Void in
-//                            preView.imgView.frame = startFrame
-//                            preView.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
-//                        }, completion: { (didComplete) -> Void in
-//                            preView.removeFromSuperview()
-//                            self.backGroundImgView.removeFromSuperview()
-//                        })
 
                     }
                 }
             }
         }
+       
     }
 
-    //MARK: - TTTAttributedLabelDelegate
+    //MARK: - TextViewDelegate
 
-    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
-        let safari = SFSafariViewController(url: url)
+
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        let safari = SFSafariViewController(url: URL)
         safari.modalPresentationStyle = .overFullScreen
         present(safari, animated: true, completion: nil)
+        return false
+        
     }
     
     
