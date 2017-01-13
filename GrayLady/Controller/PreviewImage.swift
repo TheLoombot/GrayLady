@@ -20,6 +20,8 @@ class PreviewImage: UIView {
 
     let scrollView: UIScrollView = {
         let sc = UIScrollView()
+        sc.showsVerticalScrollIndicator = false
+        sc.showsHorizontalScrollIndicator = false
         return sc
     }()
 

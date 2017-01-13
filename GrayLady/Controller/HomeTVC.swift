@@ -17,6 +17,8 @@ class HomeTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
         tableView.tableFooterView = UIView()
         let refeshController = UIRefreshControl()
         refeshController.setText(isFirstload: true)

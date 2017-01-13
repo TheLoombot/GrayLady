@@ -45,6 +45,8 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         let sc = UIScrollView()
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.clipsToBounds = true
+        sc.showsHorizontalScrollIndicator = false
+        sc.showsVerticalScrollIndicator = false
         return sc
     }()
 

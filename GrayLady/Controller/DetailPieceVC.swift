@@ -41,6 +41,8 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         cv.isPagingEnabled = true
         cv.clipsToBounds = true
         cv.allowsSelection = true
+        cv.showsVerticalScrollIndicator = false
+        cv.showsHorizontalScrollIndicator = false
 
         return cv
     }()
