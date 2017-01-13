@@ -66,6 +66,9 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont().fontApp(24)
         lbl.numberOfLines = 0
+        lbl.linkAttributes = [NSForegroundColorAttributeName: UIColor().colorLink()]
+        lbl.activeLinkAttributes = [NSForegroundColorAttributeName: UIColor.black]
+
         return lbl
     }()
 
@@ -133,6 +136,7 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         for diectLink in contentText.0 {
             if let range = contentText.1.range(of: diectLink.strShow) {
                 print(range)
+
                 lblcontentPiece.addLink(to: URL.init(string: diectLink.url), with:(lblcontentPiece.text!.nsRange(fromRange: range)))
 
             }

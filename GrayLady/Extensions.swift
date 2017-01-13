@@ -22,6 +22,16 @@ extension UIFont {
 
 }
 
+//MARK: - UIColor
+
+extension UIColor {
+
+    func colorLink() -> UIColor {
+        return UIColor.init(red: 52/255, green: 104/255, blue: 141/255, alpha: 1)
+    }
+
+}
+
 
 
 
