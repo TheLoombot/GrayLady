@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		631975261E274957008E8A4E /* FormatUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631975251E274957008E8A4E /* FormatUrl.swift */; };
+		636AD1B61E2890A100ABAC65 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636AD1B51E2890A100ABAC65 /* HomeCell.swift */; };
 		639124F31E24E36300EEFBDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639124F21E24E36300EEFBDF /* AppDelegate.swift */; };
 		639124FA1E24E36300EEFBDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 639124F91E24E36300EEFBDF /* Assets.xcassets */; };
 		639124FD1E24E36300EEFBDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 639124FB1E24E36300EEFBDF /* LaunchScreen.storyboard */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		607A0718AB78BF86DFDA39F9 /* Pods-Gray Lady.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gray Lady.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gray Lady/Pods-Gray Lady.release.xcconfig"; sourceTree = "<group>"; };
 		631975251E274957008E8A4E /* FormatUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatUrl.swift; sourceTree = "<group>"; };
+		636AD1B51E2890A100ABAC65 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		639124EF1E24E36300EEFBDF /* Gray Lady.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gray Lady.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		639124F21E24E36300EEFBDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		639124F91E24E36300EEFBDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				639125051E24E58F00EEFBDF /* DetailPieceCell.swift */,
+				636AD1B51E2890A100ABAC65 /* HomeCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				6391250D1E24E58F00EEFBDF /* PreviewImage.swift in Sources */,
 				6391250B1E24E58F00EEFBDF /* DetailPieceVC.swift in Sources */,
 				639125121E24E5BF00EEFBDF /* Extensions.swift in Sources */,
+				636AD1B61E2890A100ABAC65 /* HomeCell.swift in Sources */,
 				63D322341E26CC4900F09F74 /* InfoImage.swift in Sources */,
 				639124F31E24E36300EEFBDF /* AppDelegate.swift in Sources */,
 				6391250A1E24E58F00EEFBDF /* DetailPieceCell.swift in Sources */,
