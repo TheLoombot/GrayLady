@@ -41,7 +41,7 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         cv.isPagingEnabled = true
         cv.clipsToBounds = true
         cv.allowsSelection = true
-        
+
         return cv
     }()
 
@@ -56,8 +56,8 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
     }
 
     func setupLayoutCollectionview() {
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
 
@@ -79,7 +79,7 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: view.frame.height - 64)
+        return CGSize(width: view.frame.width, height: view.frame.height)
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -95,20 +95,20 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
 
 
     func configCell(_ cell: DetailPieceCell, indexPath: IndexPath, entry: Entry) {
-       cell.lblcontentPiece.delegate = self
-       let info = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(entry)
-       cell.configCell(entry: entry)
-    
+        cell.lblcontentPiece.delegate = self
+        let info = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(entry)
+        cell.configCell(entry: entry)
+
 
         cell.handTapContent = {
 
-                if indexPath.item < self.arrayData.count - 1 {
-                    let nextIndexPath = IndexPath(row: indexPath.item + 1, section: 0)
-                    self.collectionView.scrollToItem(at: nextIndexPath, at: UICollectionViewScrollPosition(), animated: true)
-                }else {
-                    _ = self.navigationController?.popViewController(animated: true)
-                    
-                }
+            if indexPath.item < self.arrayData.count - 1 {
+                let nextIndexPath = IndexPath(row: indexPath.item + 1, section: 0)
+                self.collectionView.scrollToItem(at: nextIndexPath, at: UICollectionViewScrollPosition(), animated: true)
+            }else {
+                _ = self.navigationController?.popViewController(animated: true)
+
+            }
 
 
 
@@ -126,9 +126,6 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
 
                 preView.frame = startFrame
                 self.backGroundImgView.addSubview(preView)
-                self.navigationController?.navigationBar.isHidden = true
-
-
 
                 UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: { () -> Void in
                     preView.frame = self.view.frame
@@ -148,20 +145,17 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
                     if let startFrame = cell.imgView.superview?.convert(cell.imgView.frame, to: nil) {
                         UIView.animate(withDuration: 0.75, animations: { () -> Void in
                             preView.imgView.frame = startFrame
-                             preView.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                            preView.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
                         }, completion: { (didComplete) -> Void in
                             preView.removeFromSuperview()
                             self.backGroundImgView.removeFromSuperview()
-                            self.navigationController?.navigationBar.isHidden = false
-                            
                         })
-                        
+
                     }
                 }
             }
         }
     }
-
 
     //MARK: - TTTAttributedLabelDelegate
 
@@ -170,12 +164,12 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         safari.modalPresentationStyle = .overFullScreen
         present(safari, animated: true, completion: nil)
     }
-
     
-
-
-
-
+    
+    
+    
+    
+    
     
     
     

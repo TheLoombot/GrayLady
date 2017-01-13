@@ -32,10 +32,10 @@ class PreviewImage: UIView {
         return imgV
     }()
 
-
     init(info: InfoImage) {
-        self.imgInfo = info
 
+        self.imgInfo = info
+        
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * info.aspectImg()))
         addSubview(scrollView)
         imgView.frame = scrollView.frame

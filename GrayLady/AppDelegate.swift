@@ -9,6 +9,7 @@
 import UIKit
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
         let navi = UINavigationController(rootViewController: HomeTVC())
+        navi.navigationBar.isHidden = true
         window?.rootViewController = navi
         return true
     }
@@ -37,6 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
     }
+
+
+
+
     
     
 }

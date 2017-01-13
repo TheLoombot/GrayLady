@@ -93,6 +93,7 @@ class HomeTVC: UITableViewController {
                 let detail = DetailPieceVC(entry: arrayData[indexPath.row])
                 navigationController?.pushViewController(detail, animated: true)        
     }
-    
+
+  
     
 }

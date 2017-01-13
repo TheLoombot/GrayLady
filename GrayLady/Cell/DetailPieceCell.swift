@@ -16,7 +16,7 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
 
     var handTapImg: actionBlock?
     var handTapContent: actionBlock?
-   
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -76,8 +76,8 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         addSubview(scrollView)
 
         // fix collectionView didSelectItemAtIndexPath
-//        scrollView.isUserInteractionEnabled = false
-//        contentView.addGestureRecognizer(scrollView.panGestureRecognizer)
+        //        scrollView.isUserInteractionEnabled = false
+        //        contentView.addGestureRecognizer(scrollView.panGestureRecognizer)
 
         layoutScrollview()
     }
@@ -102,13 +102,14 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
 
         lblcaptionImg.topAnchor.constraint(equalTo: imgView.bottomAnchor, constant: 10).isActive = true
         scrollView.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: lblcaptionImg)
+        lblcaptionImg.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant:  -20).isActive = true
 
         lblcontentPiece.topAnchor.constraint(equalTo: lblcaptionImg.bottomAnchor, constant: 10).isActive = true
         lblcontentPiece.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant:  10).isActive = true
         lblcontentPiece.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -20).isActive = true
         lblcontentPiece.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        
-        
+
+
     }
 
     func handleTapImg() {
@@ -117,7 +118,7 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     }
 
     func handleTapcontentView(gestureReconizer: UITapGestureRecognizer) {
-         handTapContent!()
+        handTapContent!()
     }
 
     func configCell(entry: Entry) {
@@ -142,7 +143,7 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
 
         if (touch.view?.isKind(of: TTTAttributedLabel.classForCoder()))! {
-           let point = touch.location(in: lblcontentPiece)
+            let point = touch.location(in: lblcontentPiece)
             print(point)
             print(lblcontentPiece.containslink(at: point))
             if lblcontentPiece.containslink(at: point) {
@@ -150,12 +151,12 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
             }else {
                 return true
             }
-
+            
         }else {
             return true
         }
     }
-
-
-
+    
+    
+    
 }

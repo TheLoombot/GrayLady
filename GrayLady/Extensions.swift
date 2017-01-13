@@ -61,7 +61,7 @@ extension String {
 
         return NSRange(location: location, length: length)
     }
-    
+
 
     func delectedUrl() -> ([FormatUrl], String) {
 
@@ -69,15 +69,13 @@ extension String {
 
         var httpFormat = [FormatUrl]()
         let array = self.components(separatedBy: "[")
-        print(self)
+
         for str in array {
             if str == "" || str.contains("]") == false {
-                 strRemoveFormat += str
+                strRemoveFormat += str
                 continue
             }
-
-
-          let strTem = "[" + str
+            let strTem = "[" + str
             let  subStr = strTem.between("[", "]")
             let httpSub = str.between("(", ")")
             if subStr != nil && httpSub != nil {
@@ -88,15 +86,11 @@ extension String {
                 }else {
                     strRemoveFormat += str
                 }
-
-
-
             }
         }
-        print(strRemoveFormat)
         return (httpFormat, strRemoveFormat)
     }
-    
+
 
 
 }
@@ -122,7 +116,7 @@ extension UIRefreshControl {
 
     func setText(isFirstload: Bool) {
         if (!isFirstload) {
-             self.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+            self.attributedTitle = NSAttributedString(string: "Pull to Refresh")
         }else {
             self.attributedTitle = NSAttributedString(string: "Loading...")
         }
@@ -130,7 +124,7 @@ extension UIRefreshControl {
 
     func setTextRefreshing(isFirstload: Bool) {
         if !isFirstload {
-             self.attributedTitle = NSAttributedString(string: "Refreshing data...")
+            self.attributedTitle = NSAttributedString(string: "Refreshing data...")
         }
     }
 }

@@ -9,6 +9,7 @@
 import UIKit
 import Contentful
 class ManageContentful {
+    
     let client = Client(spaceIdentifier: Constrant.keyContentful.space, accessToken: Constrant.keyContentful.token)
     static let sharedInstance = ManageContentful()
 
