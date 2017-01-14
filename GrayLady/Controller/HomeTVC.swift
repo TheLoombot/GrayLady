@@ -27,7 +27,6 @@ class HomeTVC: UITableViewController {
         refeshController.setText(isFirstload: true)
         refeshController.addTarget(self, action: #selector(hanleRefresh), for: .valueChanged)
         self.refreshControl = refeshController
-        refeshController.beginRefreshing()
         hanleRefresh()
     }
 
@@ -43,10 +42,14 @@ class HomeTVC: UITableViewController {
                 self.arrayData = arr
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    if self.isFirstLoad {
+                        self.dismiss(animated: true, completion: nil)
+                    }
                     OperationQueue.current?.addOperation({
                         self.refreshControl?.endRefreshing()
                         self.refreshControl?.setTextRefreshing(isFirstload: self.isFirstLoad)
                         self.isFirstLoad = false
+
                     })
 
 
@@ -84,7 +87,7 @@ class HomeTVC: UITableViewController {
         let pieceFirst = dataPiece[0] as! Entry
         let author = "by " + info.author
         let infoPieceFirst = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(pieceFirst)
-        let heightImage = infoPieceFirst.infoImg.aspectImg() * UIScreen.main.bounds.width
+        let heightImage = infoPieceFirst.infoImg.aspectImg() * widthScreen
         let hegithTitle = info.title.heightWithConstrainedWidth(width: widthScreen - 20, font: UIFont().fontApp(16))
         let heightAuthor = author.heightWithConstrainedWidth(width: widthScreen - 20, font: UIFont().fontApp(9))
         return heightImage + hegithTitle + heightAuthor + 10 + 5 + 5 + 1

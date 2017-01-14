@@ -19,12 +19,7 @@ class ManageContentful {
 
             switch resulft {
             case let .success(entry):
-                var array = [Entry]()
-                for item in entry.items {
-                    array.append(item)
-                }
-                completer(array)
-
+                completer(entry.items.map({$0}))
             case .error(_):
                 completer(nil)
             }

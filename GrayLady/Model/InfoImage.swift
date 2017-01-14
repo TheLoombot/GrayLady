@@ -20,7 +20,7 @@ class InfoImage: NSObject {
     }
 
     func aspectImg() ->CGFloat {
-        guard width != 0 else {
+        guard width != 0 && height != 0 else {
             return 1
         }
         let aspect = height / width

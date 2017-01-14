@@ -27,6 +27,7 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
 
 
     lazy var collectionView: UICollectionView = {
+
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
@@ -57,10 +58,8 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
     }
 
     func setupLayoutCollectionview() {
-        collectionView.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        view.addConstraintsWithFormat("H:|[v0]|", views: collectionView)
+        view.addConstraintsWithFormat("V:|[v0]|", views: collectionView)
     }
 
     //MARK: - collection View

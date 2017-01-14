@@ -86,32 +86,20 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         scrollView.addSubview(lblcaptionImg)
         scrollView.addSubview(txvContent)
 
-        addConstraintsWithFormat("H:|[v0]|", views: scrollView)
-        addConstraintsWithFormat("V:|[v0]|", views: scrollView)
-        scrollView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        scrollView.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
+        addConstraintsWithFormat("H:|[v0(\(contentView.frame.width))]|", views: scrollView)
+        addConstraintsWithFormat("V:|[v0(\(contentView.frame.height))]|", views: scrollView)
 
-
-        imgView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        imgView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
-        imgView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
         heightImg = imgView.heightAnchor.constraint(equalToConstant: 150)
         heightImg?.isActive = true
 
-        lblcaptionImg.topAnchor.constraint(equalTo: imgView.bottomAnchor, constant: 10).isActive = true
+        scrollView.addConstraintsWithFormat("H:|[v0(\(contentView.frame.width))]|", views: imgView)
+        scrollView.addConstraintsWithFormat("H:|-7-[v0]-7-|", views: txvContent)
         scrollView.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: lblcaptionImg)
-        lblcaptionImg.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant:  -20).isActive = true
-
-        txvContent.topAnchor.constraint(equalTo: lblcaptionImg.bottomAnchor, constant: 7).isActive = true
-        txvContent.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant:  7).isActive = true
-        txvContent.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -14).isActive = true
-        txvContent.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-
+        scrollView.addConstraintsWithFormat("V:|[v0]-10-[v1]-7-[v2]|", views: imgView, lblcaptionImg, txvContent)
 
     }
 
     func handleTapImg() {
-
         handTapImg!()
     }
 

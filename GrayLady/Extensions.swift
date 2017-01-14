@@ -32,9 +32,6 @@ extension UIColor {
 
 }
 
-
-
-
 // MARK: - String
 
 extension String {
@@ -115,3 +112,4 @@ extension UIRefreshControl {
         }
     }
 }
+
