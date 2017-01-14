@@ -66,7 +66,7 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         txv.isScrollEnabled = false
         txv.isEditable = false
         txv.translatesAutoresizingMaskIntoConstraints = false
-        txv.linkTextAttributes = [NSForegroundColorAttributeName: UIColor().colorLink()]
+        txv.linkTextAttributes = [NSForegroundColorAttributeName: UIColor().colorLink(), NSUnderlineStyleAttributeName: true]
         return txv
     }()
 

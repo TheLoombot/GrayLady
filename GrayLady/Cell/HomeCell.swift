@@ -80,7 +80,7 @@ class HomeCell: UITableViewCell {
 
     func configcell(entry: Entry) {
         
-         let info = ManageContentful.sharedInstance.getTitleAndAuthor(entry)
+        let info = ManageContentful.sharedInstance.getTitleAndAuthor(entry)
         lblTitle.text = info.title
         lblAuthor.text = "by " + info.author
         
