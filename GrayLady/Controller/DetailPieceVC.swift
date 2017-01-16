@@ -133,6 +133,7 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
                             preView.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
 
                         }, completion: { (didComplete) -> Void in
+                            preView.removeFromSuperview()
                             self.backGroundImgView.removeFromSuperview()
                         })
 

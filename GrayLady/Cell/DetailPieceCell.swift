@@ -116,5 +116,22 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         let str = info.infoImg.url
         imgView.kf.setImage(with: URL.init(string: str))
     }
+
+    // MARK: - gestureRecognizer delegate
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        guard (touch.view?.isKind(of: UITextView.classForCoder()))! else { return true
+
+        }
+        let point = touch.location(in: txvContent)
+        let textPosition = txvContent.closestPosition(to: point)
+        let attr = txvContent.textStyling(at: textPosition!, in: .forward)
+        if attr?["NSLink"] != nil {
+            return false
+        }else {
+            return true
+        }    }
+    
+    
+    
     
 }
