@@ -129,9 +129,10 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
             return false
         }else {
             return true
-        }    }
-    
-    
-    
+        }
+    }
+
+
+
     
 }

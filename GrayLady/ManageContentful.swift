@@ -15,14 +15,16 @@ class ManageContentful {
 
     func getEntryTypeBriefing (_ completer:@escaping ([Entry]?) -> Void) {
 
-        _ = client.fetchEntries(matching: [Constrant.keyAPI.content_type : "briefing"]) { (resulft) in
+        _ = client.fetchEntries(matching: [Constrant.keyAPI.content_type : "briefing", "order": "fields.briefingDate"]) { (resulft) in
+            print(resulft)
 
             switch resulft {
             case let .success(entry):
-                completer(entry.items.map({$0}))
+
+                completer(entry.items)
             case .error(_):
                 completer(nil)
-            }
+                }
         }
     }
 
@@ -86,8 +88,7 @@ class ManageContentful {
             }
         }
         
-        return(imageCap, pieceText, info)
-        
+        return(imageCap, pieceText, info)       
         
     }
     
