@@ -90,7 +90,6 @@ extension UIView {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionnary))
-
     }
 }
 
@@ -100,7 +99,9 @@ extension UIRefreshControl {
 
     func setText(isFirstload: Bool) {
         if (!isFirstload) {
-            self.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM dd, HH:mm:ss"
+            self.attributedTitle = NSAttributedString(string: "Last update: \(formatter.string(from: Date()))")
         }else {
             self.attributedTitle = NSAttributedString(string: "Loading...")
         }

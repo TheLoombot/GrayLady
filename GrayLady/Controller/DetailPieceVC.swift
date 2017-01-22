@@ -112,7 +112,7 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
                 preView.frame = startFrame
                 self.backGroundImgView.addSubview(preView)
 
-                UIView.animate(withDuration: 0.35, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: { () -> Void in
+                UIView.animate(withDuration: 0.35, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: { () -> Void in
                     preView.frame = self.view.frame
                     preView.scrollView.frame = self.view.frame
                     preView.imgView.frame = CGRect(x: 0, y: 0, width: self.view.frame.height / preView.imgInfo.aspectImg(), height: self.view.frame.size.height)
@@ -128,7 +128,7 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
                     self.backGroundImgView.backgroundColor = .clear
 
                     if let startFrame = cell.imgView.superview?.convert(cell.imgView.frame, to: nil) {
-                        UIView.animate(withDuration: 0.35, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseIn, animations: { () -> Void in
+                        UIView.animate(withDuration: 0.35, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: { () -> Void in
                             preView.imgView.frame = startFrame
                             preView.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
 

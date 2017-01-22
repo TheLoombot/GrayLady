@@ -9,23 +9,37 @@
 import UIKit
 import Contentful
 class ManageContentful {
-    
+
+    let ITEM = 7
+
     let client = Client(spaceIdentifier: Constrant.keyContentful.space, accessToken: Constrant.keyContentful.token)
     static let sharedInstance = ManageContentful()
 
     func getEntryTypeBriefing (_ completer:@escaping ([Entry]?) -> Void) {
 
-        _ = client.fetchEntries(matching: [Constrant.keyAPI.content_type : "briefing", "order": "fields.briefingDate"]) { (resulft) in
-            print(resulft)
-
+        _ = client.fetchEntries(matching: [Constrant.keyAPI.content_type : "briefing", "order": "-fields.briefingDate", "limit": 2]) { (resulft) in
             switch resulft {
             case let .success(entry):
 
                 completer(entry.items)
             case .error(_):
                 completer(nil)
-                }
+            }
         }
+    }
+
+    func getEntryBriefingPage(page: Int, completer:@escaping ([Entry]?) -> Void) {
+
+        _ = client.fetchEntries(matching: [Constrant.keyAPI.content_type : "briefing", "order": "-fields.briefingDate", "limit": ITEM, "skip": page * ITEM]) { (resulft) in
+            switch resulft {
+            case let .success(entry):
+
+                completer(entry.items)
+            case .error(_):
+                completer(nil)
+            }
+        }
+
     }
 
     func getTitleAndAuthor(_ entryBriefing: Entry) ->(title: String, author: String) {
