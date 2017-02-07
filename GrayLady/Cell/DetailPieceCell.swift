@@ -11,7 +11,7 @@ import Contentful
 import MarkdownKit
 
 
-class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
+class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayoutManagerDelegate {
 
     typealias actionBlock = () ->()
     var handTapImg: actionBlock?
@@ -58,15 +58,16 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont().fontApp(11)
         lbl.numberOfLines = 0
-
         return lbl
     }()
+
     lazy var txvContent: UITextView = {
         let txv = UITextView()
         txv.isScrollEnabled = false
         txv.isEditable = false
         txv.translatesAutoresizingMaskIntoConstraints = false
         txv.linkTextAttributes = [NSForegroundColorAttributeName: UIColor().colorLink(), NSUnderlineStyleAttributeName: true]
+        txv.layoutManager.delegate = self
         return txv
     }()
 
@@ -127,10 +128,16 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate {
         let attr = txvContent.textStyling(at: textPosition!, in: .forward)
         if attr?["NSLink"] != nil {
             return false
-        }else {
-            return true
         }
+        return true
     }
+
+    // MARK: - LayuotDelegate
+
+    func layoutManager(_ layoutManager: NSLayoutManager, lineSpacingAfterGlyphAt glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat {
+        return 5
+    }
+
 
 
 

@@ -389,6 +389,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 764421F8AFD8E0C963F4456C /* Pods-Gray Lady.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7CZRA7KNK3;
 				INFOPLIST_FILE = GrayLady/Info.plist;
@@ -404,6 +405,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 607A0718AB78BF86DFDA39F9 /* Pods-Gray Lady.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7CZRA7KNK3;
 				INFOPLIST_FILE = GrayLady/Info.plist;

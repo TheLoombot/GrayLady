@@ -37,10 +37,8 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         cv.register(DetailPieceCell.self, forCellWithReuseIdentifier: cellId)
         cv.delegate = self
         cv.dataSource = self
-        cv.translatesAutoresizingMaskIntoConstraints = false
         cv.isPagingEnabled = true
         cv.clipsToBounds = true
-        cv.allowsSelection = true
         cv.showsVerticalScrollIndicator = false
         cv.showsHorizontalScrollIndicator = false
 

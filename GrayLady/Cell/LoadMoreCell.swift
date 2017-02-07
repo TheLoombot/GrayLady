@@ -9,13 +9,12 @@
 import UIKit
 
 class LoadMoreCell: UITableViewCell {
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         contentView.addSubview(activiView)
         setupViews()
-        
-
     }
     
     required init?(coder aDecoder: NSCoder) {

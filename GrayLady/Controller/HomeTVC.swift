@@ -41,6 +41,8 @@ class HomeTVC: UITableViewController {
         super.didReceiveMemoryWarning()
     }
 
+    // MARK: - LoadData
+
     func hanleRefresh(){
         refreshControl?.setText(isFirstload: isFirstLoad)
         isloading = true
@@ -125,8 +127,9 @@ class HomeTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let loadmorecell = LoadMoreCell.init(style: .default, reuseIdentifier: cellLoadingId)
+
         if shouldShowPaginationCell() && indexPath == indexPathForPaginationCell() {
+             let loadmorecell = LoadMoreCell.init(style: .default, reuseIdentifier: cellLoadingId)
             return loadmorecell
         }
         let cell = HomeCell.init(style: .default, reuseIdentifier: cellID)
@@ -160,12 +163,7 @@ class HomeTVC: UITableViewController {
         return ( arrayData.count != 0 && (lastLoadCount == -1 || lastLoadCount >= ManageContentful.sharedInstance.ITEM))
     }
 
-    func loadNextPage() {
-        if isloading == false {
-
-        }
-    }
-
+    // MARK: - ScrllViewDelegate
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (scrollView.contentSize.height - scrollView.contentOffset.y ) < scrollView.bounds.size.height {

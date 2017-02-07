@@ -6,7 +6,7 @@
 //  Copyright © 2017 QTScoder. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public struct Constrant {
     struct keyContentful {
