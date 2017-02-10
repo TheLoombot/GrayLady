@@ -16,6 +16,8 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
     typealias actionBlock = () ->()
     var handTapImg: actionBlock?
     var handTapContent: actionBlock?
+    var handTapLink: actionBlock?
+    var link: URL?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -66,8 +68,9 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
         txv.isScrollEnabled = false
         txv.isEditable = false
         txv.translatesAutoresizingMaskIntoConstraints = false
-        txv.linkTextAttributes = [NSForegroundColorAttributeName: UIColor().colorLink(), NSUnderlineStyleAttributeName: true]
         txv.layoutManager.delegate = self
+        txv.linkTextAttributes = [NSForegroundColorAttributeName: UIColor().colorLink(), NSUnderlineStyleAttributeName: true]
+        txv.isSelectable = false
         return txv
     }()
 
@@ -119,6 +122,7 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
     }
 
     // MARK: - gestureRecognizer delegate
+
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         guard (touch.view?.isKind(of: UITextView.classForCoder()))! else { return true
 
@@ -126,7 +130,9 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
         let point = touch.location(in: txvContent)
         let textPosition = txvContent.closestPosition(to: point)
         let attr = txvContent.textStyling(at: textPosition!, in: .forward)
-        if attr?["NSLink"] != nil {
+        if let url = attr?["NSLink"]  {
+            link = url as? URL
+            handTapLink?()
             return false
         }
         return true
@@ -141,5 +147,6 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
 
 
 
-    
+
+
 }

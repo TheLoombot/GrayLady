@@ -12,7 +12,7 @@ import Kingfisher
 import SafariServices
 
 private let cellId = "DetailPieceCell"
-class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITextViewDelegate {
+class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
 
     var entry: Entry?
     var arrayData =  [Any]()
@@ -83,8 +83,12 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
 
         let info = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(entry)
         cell.configCell(entry: entry)
-        cell.txvContent.delegate = self
 
+        cell.handTapLink = {
+            let safari = SFSafariViewController(url: cell.link!)
+            safari.modalPresentationStyle = .overFullScreen
+            self.present(safari, animated: true, completion: nil)
+        }
 
         cell.handTapContent = {
 
@@ -96,6 +100,7 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
 
             }
         }
+        
 
         cell.handTapImg = {
             self.backGroundImgView.frame = self.view.frame
@@ -140,26 +145,7 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
             }
         }
        
-    }
-
-    //MARK: - TextViewDelegate
-
-
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
-        let safari = SFSafariViewController(url: URL)
-        safari.modalPresentationStyle = .overFullScreen
-        present(safari, animated: true, completion: nil)
-        return false
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
+    }   
     
     
 }
