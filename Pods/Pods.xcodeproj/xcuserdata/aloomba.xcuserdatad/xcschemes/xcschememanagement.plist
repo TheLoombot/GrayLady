@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AWSCore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSSNS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Contentful.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -14,22 +24,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>INSPhotoGallery-INSPhotoGallery.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>INSPhotoGallery.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Interstellar-Contentful.xcscheme</key>
+		<key>Interstellar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MarkdownKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,12 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>160F3D2B181465FD6DEC4E9916DF2092</key>
+		<key>138A3CFD483EBE9C94B2A2C23F2C970D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4DEFC7CE86B6F423C0DC24820626CAF0</key>
+		<key>38E4E1FBF57AFAFC5BDFAB9B7A179C77</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,32 +62,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5AB2AFB1E6DC8D2967EF130A030AD1B8</key>
+		<key>5ACFCBB5C36270A9DF9A2D2D11708867</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>929B2685DB1678B8315BA348D337CEBF</key>
+		<key>8396CD932BA047CACB40CEF32006A174</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AAD48DD678438954A0719939EF0C33C7</key>
+		<key>923FE28FC8B985C27EC61D0830DB3FC1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A62F327845E0D2880301619E888FDD6F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C4944FEC314D1A66588651D006273ADE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EB76C4B4D48DC0E409D42CCCD26FFBBF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FDA659925B3B3D06854CB9F39A5F3D97</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -84,16 +84,20 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/AWSCore/AWSCore.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/AWSSNS/AWSSNS.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Contentful/Contentful.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Decodable/Decodable.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Interstellar-Contentful/Interstellar_Contentful.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Interstellar/Interstellar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Kingfisher/Kingfisher.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MarkdownKit/MarkdownKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/AWSCore/AWSCore.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/AWSSNS/AWSSNS.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Contentful/Contentful.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Decodable/Decodable.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Interstellar-Contentful/Interstellar_Contentful.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Interstellar/Interstellar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Kingfisher/Kingfisher.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MarkdownKit/MarkdownKit.framework"
 fi

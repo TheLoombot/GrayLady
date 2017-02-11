@@ -5,7 +5,7 @@ target 'Gray Lady' do
     pod 'Contentful'
     pod 'Kingfisher'
     pod 'MarkdownKit'
-
+    pod 'AWSSNS'
   
 
 end

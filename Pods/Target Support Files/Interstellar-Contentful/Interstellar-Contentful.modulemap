@@ -1,6 +1,0 @@
-framework module Interstellar_Contentful {
-  umbrella header "Interstellar-Contentful-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -8,13 +8,15 @@
 
 import UIKit
 import UserNotifications
+import AWSSNS
 
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+    let SNSPlatformApplicationArn = "arn:aws:sns:us-east-1:467509107760:app/APNS_SANDBOX/GrayLady2"
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
@@ -61,7 +63,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Print it to console
         print("APNs device token: \(deviceTokenString)")
         
-        // Persist it in your backend in case it's new
+        UserDefaults.standard.set(deviceTokenString, forKey: "deviceToken")
+
+        // First create the AWS endpoint for the device
+        let sns = AWSSNS.default()
+        let request = AWSSNSCreatePlatformEndpointInput()
+        request?.token = deviceTokenString
+        request?.platformApplicationArn = SNSPlatformApplicationArn
+
+        sns.createPlatformEndpoint(request!).continueWith(executor: AWSExecutor.mainThread(), block: { (task: AWSTask!) -> AnyObject! in
+            if task.error != nil {
+                print("Error: \(task.error)")
+            } else {
+                let createEndpointResponse : AWSSNSCreateEndpointResponse? = task.result
+                print("endpointArn: \(createEndpointResponse?.endpointArn)")
+                UserDefaults.standard.set(createEndpointResponse?.endpointArn, forKey: "endpointArn")
+                // Then subscribe that endpoint to the master topic for notifications
+                let subRequest = AWSSNSSubscribeInput()
+                subRequest?.endpoint = createEndpointResponse?.endpointArn
+                subRequest?.protocols = "application"
+                subRequest?.topicArn = "arn:aws:sns:us-east-1:467509107760:outbound_push"
+                sns.subscribe(subRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task: AWSTask!) -> AnyObject! in
+                    if task.error != nil {
+                        print("Error: \(task.error)")
+                    } else {
+                        let createSubResponse : AWSSNSSubscribeResponse? = task.result
+                        print("subscription ARN: \(createSubResponse?.subscriptionArn)")
+                    }
+                
+                return nil
+                })
+            }
+            return nil
+        })
+
+        
     }
     
     // Called when APNs failed to register the device for push notifications
