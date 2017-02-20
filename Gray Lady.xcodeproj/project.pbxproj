@@ -74,6 +74,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		630496A01E5A940B00B94F02 /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BaseClass;
+			sourceTree = "<group>";
+		};
 		639124E61E24E36300EEFBDF = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				9CD54FA21E4AB654006B000C /* Gray Lady.entitlements */,
+				630496A01E5A940B00B94F02 /* BaseClass */,
 				63D322321E26CC4900F09F74 /* Model */,
 				639125041E24E58F00EEFBDF /* Cell */,
 				639125061E24E58F00EEFBDF /* Controller */,

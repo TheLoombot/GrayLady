@@ -100,7 +100,7 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
 
             }
         }
-        
+
 
         cell.handTapImg = {
             self.backGroundImgView.frame = self.view.frame
@@ -122,7 +122,7 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
                     preView.scrollView.contentSize = preView.imgView.frame.size
                     let centerXoffset = (preView.scrollView.contentSize.width - preView.scrollView.frame.width) / 2
                     preView.scrollView.setContentOffset(CGPoint.init(x: centerXoffset, y: 0), animated: false)
-                    
+
                 }, completion: { (didComplete) -> Void in
                     self.backGroundImgView.backgroundColor = .black
                 })
@@ -139,12 +139,12 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
                             preView.removeFromSuperview()
                             self.backGroundImgView.removeFromSuperview()
                         })
-
+                        
                     }
                 }
             }
         }
-       
+        
     }   
     
     

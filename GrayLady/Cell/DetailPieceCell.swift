@@ -11,13 +11,14 @@ import Contentful
 import MarkdownKit
 
 
-class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayoutManagerDelegate {
+class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayoutManagerDelegate, UITextViewDelegate {
 
     typealias actionBlock = () ->()
     var handTapImg: actionBlock?
     var handTapContent: actionBlock?
     var handTapLink: actionBlock?
     var link: URL?
+    var heightImg : NSLayoutConstraint?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,10 +28,6 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    var heightImg : NSLayoutConstraint?
-
-
 
     lazy var imgView: UIImageView = {
         let imgV = UIImageView()
@@ -70,7 +67,8 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
         txv.translatesAutoresizingMaskIntoConstraints = false
         txv.layoutManager.delegate = self
         txv.linkTextAttributes = [NSForegroundColorAttributeName: UIColor().colorLink(), NSUnderlineStyleAttributeName: true]
-        txv.isSelectable = false
+        txv.delegate = self
+
         return txv
     }()
 
@@ -79,7 +77,6 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapcontentView(gestureReconizer:)))
         tap.delegate = self
         scrollView.addGestureRecognizer(tap)
-        tap.cancelsTouchesInView = false
         addSubview(scrollView)
         layoutScrollview()
     }
@@ -104,11 +101,12 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
     }
 
     func handleTapImg() {
-        handTapImg!()
+        handTapImg?()
     }
 
     func handleTapcontentView(gestureReconizer: UITapGestureRecognizer) {
-        handTapContent!()
+        handTapContent?()
+
     }
 
     func configCell(entry: Entry) {
@@ -123,16 +121,17 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
 
     // MARK: - gestureRecognizer delegate
 
+
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+
         guard (touch.view?.isKind(of: UITextView.classForCoder()))! else { return true
 
         }
+
         let point = touch.location(in: txvContent)
         let textPosition = txvContent.closestPosition(to: point)
         let attr = txvContent.textStyling(at: textPosition!, in: .forward)
-        if let url = attr?["NSLink"]  {
-            link = url as? URL
-            handTapLink?()
+        if attr?["NSLink"] != nil {
             return false
         }
         return true
@@ -144,9 +143,22 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
         return 5
     }
 
+    // MARK: -TextView
 
-
-
-
-
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        link = URL
+        handTapLink?()
+        return false
+    }
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        if !NSEqualRanges(textView.selectedRange, NSRange(location: 0, length: 0)) {
+            textView.selectedRange = NSRange(location: 0, length: 0)
+        }
+    }
+    
+    
+    
+    
+    
+    
 }
