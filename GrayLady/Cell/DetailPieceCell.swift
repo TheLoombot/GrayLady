@@ -17,7 +17,9 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
     var handTapImg: actionBlock?
     var handTapContent: actionBlock?
     var handTapLink: actionBlock?
+    var handleAlert: actionBlock?
     var link: URL?
+    var alertControler: UIAlertController?
     var heightImg : NSLayoutConstraint?
 
     override init(frame: CGRect) {
@@ -106,7 +108,6 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
 
     func handleTapcontentView(gestureReconizer: UITapGestureRecognizer) {
         handTapContent?()
-
     }
 
     func configCell(entry: Entry) {
@@ -124,9 +125,7 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
 
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
 
-        guard (touch.view?.isKind(of: UITextView.classForCoder()))! else { return true
-
-        }
+        guard (touch.view?.isKind(of: UITextView.classForCoder()))! else { return true }
 
         let point = touch.location(in: txvContent)
         let textPosition = txvContent.closestPosition(to: point)
@@ -145,20 +144,35 @@ class DetailPieceCell: UICollectionViewCell, UIGestureRecognizerDelegate, NSLayo
 
     // MARK: -TextView
 
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        print(interaction.rawValue)
         link = URL
-        handTapLink?()
+        interaction.rawValue != 1 ? handTapLink?() : showAlertOpenLink()
+
         return false
     }
+
     func textViewDidChangeSelection(_ textView: UITextView) {
         if !NSEqualRanges(textView.selectedRange, NSRange(location: 0, length: 0)) {
             textView.selectedRange = NSRange(location: 0, length: 0)
         }
     }
-    
-    
-    
-    
-    
+
+    func showAlertOpenLink() {
+        alertControler = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let actionCancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let actionOpen: UIAlertAction = UIAlertAction(title: "Open", style: .default, handler: { (action) in
+            self.handTapLink?()
+        })
+        alertControler?.addAction(actionOpen)
+        alertControler?.addAction(actionCancel)
+        handleAlert?()
+    }
+
+
+
+
+
     
 }

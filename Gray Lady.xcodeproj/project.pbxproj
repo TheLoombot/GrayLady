@@ -414,7 +414,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nguyen Cuong (6S64K2Y8SL)";
 				DEVELOPMENT_TEAM = 7CZRA7KNK3;
 				INFOPLIST_FILE = GrayLady/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qtsvn.GrayLady;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -434,7 +434,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nguyen Cuong (6S64K2Y8SL)";
 				DEVELOPMENT_TEAM = 7CZRA7KNK3;
 				INFOPLIST_FILE = GrayLady/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qtsvn.GrayLady;
 				PRODUCT_NAME = "$(TARGET_NAME)";

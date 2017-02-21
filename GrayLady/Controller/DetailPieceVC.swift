@@ -101,6 +101,10 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
             }
         }
 
+        cell.handleAlert = {
+            self.present(cell.alertControler!, animated: true, completion: nil)
+        }
+
 
         cell.handTapImg = {
             self.backGroundImgView.frame = self.view.frame
