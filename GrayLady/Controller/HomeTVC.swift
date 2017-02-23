@@ -8,17 +8,20 @@
 
 import UIKit
 import Contentful
+import UserNotifications
+import UserNotificationsUI
 
 private let cellID = "HomeCellID"
 private let cellLoadingId = "LoadingCell"
 
-class HomeTVC: UITableViewController {
+class HomeTVC: UITableViewController, UNUserNotificationCenterDelegate {
 
     var arrayData = [Entry]()
     var isFirstLoad = true
     var isloading = true
     var currentPage = 0
     var lastLoadCount = 0
+    var indexphat: IndexPath?
 
 
 
@@ -33,7 +36,7 @@ class HomeTVC: UITableViewController {
         refeshController.setText(isFirstload: true)
         refeshController.addTarget(self, action: #selector(hanleRefresh), for: .valueChanged)
         self.refreshControl = refeshController
-        refeshController.beginRefreshing()
+
         hanleRefresh()
     }
 
@@ -44,6 +47,7 @@ class HomeTVC: UITableViewController {
     // MARK: - LoadData
 
     func hanleRefresh(){
+        refreshControl?.beginRefreshing()
         refreshControl?.setText(isFirstload: isFirstLoad)
         isloading = true
         currentPage = 0
@@ -56,10 +60,14 @@ class HomeTVC: UITableViewController {
                 self.lastLoadCount = arr.count
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+
                     OperationQueue.current?.addOperation({
                         self.refreshControl?.endRefreshing()
+
                     })
+
                 }
+                self.showContentNotification()
 
             }else {
                 self.lastLoadCount = -1
@@ -129,7 +137,7 @@ class HomeTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if shouldShowPaginationCell() && indexPath == indexPathForPaginationCell() {
-             let loadmorecell = LoadMoreCell.init(style: .default, reuseIdentifier: cellLoadingId)
+            let loadmorecell = LoadMoreCell.init(style: .default, reuseIdentifier: cellLoadingId)
             return loadmorecell
         }
         let cell = HomeCell.init(style: .default, reuseIdentifier: cellID)
@@ -169,10 +177,61 @@ class HomeTVC: UITableViewController {
         if (scrollView.contentSize.height - scrollView.contentOffset.y ) < scrollView.bounds.size.height {
             if isloading == false  && lastLoadCount >= ManageContentful.sharedInstance.ITEM {
                 loadMoreData(page: currentPage + 1)
-                
+
             }
         }
     }
-    
+    // MARK: - Notificaiton
+
+    func showContentNotification() {
+        let content = NotificationContent(title: Constrant.appName, subTitle: "Sub title here", body: "and this is the body")
+        if arrayData.count > 0 {
+                       let entry: Entry = arrayData[0]
+            let dataPiece = entry.fields["piece"] as! [Any]
+            let pieceFirst = dataPiece[0] as! Entry
+            let infoPieceFirst = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(pieceFirst)
+            guard  let imageData = NSData(contentsOf: URL(string: infoPieceFirst.infoImg.url)!) else { return }
+            let fileManager = FileManager.default
+            let tmpSubFolderName = ProcessInfo.processInfo.globallyUniqueString
+            let tmpSubFolderURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(tmpSubFolderName, isDirectory: true)
+
+            do {
+                try fileManager.createDirectory(at: tmpSubFolderURL, withIntermediateDirectories: true, attributes: nil)
+                let fileURL = tmpSubFolderURL.appendingPathComponent("image.jpg")
+                try imageData.write(to: fileURL, options: [])
+                let imageAttachment = try UNNotificationAttachment.init(identifier: Constrant.identifier.request, url: fileURL, options: [:])
+                content.attachments.append(imageAttachment)
+
+            } catch let error {
+                print("error \(error)")
+            }
+        }
+         let request = UNNotificationRequest(identifier: Constrant.identifier.request, content: content, trigger: nil)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            UNUserNotificationCenter.current().delegate = self
+            if (error != nil){
+                //handle here
+            }
+        }
+
+    }
+
+    // MARK: UNUserNotificationCenterDelegate
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print(notification.request.content.attachments)
+
+
+        completionHandler( [.alert, .badge, .sound])
+
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if arrayData.count > 4 {
+            tableView(tableView, didSelectRowAt: IndexPath(item: 0, section: 0))
+        }
+
+    }
     
 }

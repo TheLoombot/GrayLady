@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import UserNotificationsUI
 import AWSSNS
 
 @UIApplicationMain
@@ -24,16 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navi = UINavigationController(rootViewController: HomeTVC())
         navi.navigationBar.isHidden = true
         window?.rootViewController = navi
-        // iOS 10 support
-        //        if #available(iOS 10, *) {
-        UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
+      
+        let center = UNUserNotificationCenter.current()
+        let action = UNNotificationAction(identifier: Constrant.identifier.reply, title: "reply")
+        let category = UNNotificationCategory(identifier: Constrant.identifier.category, actions: [action], intentIdentifiers: [])
+        center.setNotificationCategories([category])
+        center.requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
         application.registerForRemoteNotifications()
-        //        }
-        // iOS 9 support
-        //        else if #available(iOS 9, *) {
-        //            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
-        //            UIApplication.shared.registerForRemoteNotifications()
-        //        }
+
 
         return true
     }

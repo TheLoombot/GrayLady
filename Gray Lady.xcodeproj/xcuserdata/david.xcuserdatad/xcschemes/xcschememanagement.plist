@@ -9,9 +9,24 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>NotificationViewController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>635448ED1E5EA1000095D454</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>635448FD1E5EA1870095D454</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>639124EE1E24E36300EEFBDF</key>
 		<dict>
 			<key>primary</key>
