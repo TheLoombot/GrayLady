@@ -34,6 +34,10 @@ class PreviewImage: UIView {
         return imgV
     }()
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+
     init(info: InfoImage) {
 
         self.imgInfo = info

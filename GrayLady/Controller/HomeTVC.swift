@@ -5,7 +5,6 @@
 //  Created by David on 1/6/17.
 //  Copyright © 2017 QTScoder. All rights reserved.
 //
-
 import UIKit
 import Contentful
 import UserNotifications
@@ -23,8 +22,6 @@ class HomeTVC: UITableViewController, UNUserNotificationCenterDelegate {
     var lastLoadCount = 0
     var indexphat: IndexPath?
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
@@ -36,23 +33,20 @@ class HomeTVC: UITableViewController, UNUserNotificationCenterDelegate {
         refeshController.setText(isFirstload: true)
         refeshController.addTarget(self, action: #selector(hanleRefresh), for: .valueChanged)
         self.refreshControl = refeshController
-
         hanleRefresh()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
     // MARK: - LoadData
-
     func hanleRefresh(){
         refreshControl?.beginRefreshing()
         refreshControl?.setText(isFirstload: isFirstLoad)
         isloading = true
         currentPage = 0
         lastLoadCount = 0
-        ManageContentful.sharedInstance.getEntryBriefingPage(page: 0) { (arr) in
+        ManageContentful.sharedInstance.getEntryBriefingPage(0) {[unowned self] (arr) in
             self.isloading = false
             self.isFirstLoad = false
             if let arr = arr {
@@ -67,7 +61,8 @@ class HomeTVC: UITableViewController, UNUserNotificationCenterDelegate {
                     })
 
                 }
-                self.showContentNotification()
+//                self.showContentNotification()
+               
 
             }else {
                 self.lastLoadCount = -1
@@ -79,9 +74,9 @@ class HomeTVC: UITableViewController, UNUserNotificationCenterDelegate {
         }
     }
 
-    func loadMoreData(page: Int) {
+    func loadMoreDataAtPage(_ page: Int) {
         isloading = true
-        ManageContentful().getEntryBriefingPage(page: page) { (arr) in
+        ManageContentful().getEntryBriefingPage(page) {[unowned self]  (arr) in
             self.isloading = false
 
             if let arr = arr {
@@ -99,7 +94,6 @@ class HomeTVC: UITableViewController, UNUserNotificationCenterDelegate {
                 self.refreshPaginationCell()
 
             }
-
 
         }
     }
@@ -176,7 +170,7 @@ class HomeTVC: UITableViewController, UNUserNotificationCenterDelegate {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (scrollView.contentSize.height - scrollView.contentOffset.y ) < scrollView.bounds.size.height {
             if isloading == false  && lastLoadCount >= ManageContentful.sharedInstance.ITEM {
-                loadMoreData(page: currentPage + 1)
+                loadMoreDataAtPage(currentPage + 1)
 
             }
         }
@@ -184,6 +178,7 @@ class HomeTVC: UITableViewController, UNUserNotificationCenterDelegate {
     // MARK: - Notificaiton
 
     func showContentNotification() {
+
         let content = NotificationContent(title: Constrant.appName, subTitle: "Sub title here", body: "and this is the body")
         if arrayData.count > 0 {
                        let entry: Entry = arrayData[0]
@@ -217,20 +212,62 @@ class HomeTVC: UITableViewController, UNUserNotificationCenterDelegate {
 
     }
 
+    func showDelayedNotification() {
+         let content = NotificationContent(title: Constrant.appName, subTitle: "Sub title here", body: "and this is the body")
+        if arrayData.count > 0 {
+            let entry: Entry = arrayData[0]
+            let dataPiece = entry.fields["piece"] as! [Any]
+            let pieceFirst = dataPiece[0] as! Entry
+            let infoPieceFirst = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(pieceFirst)
+            guard  let imageData = NSData(contentsOf: URL(string: infoPieceFirst.infoImg.url)!) else { return }
+            let fileManager = FileManager.default
+            let tmpSubFolderName = ProcessInfo.processInfo.globallyUniqueString
+            let tmpSubFolderURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(tmpSubFolderName, isDirectory: true)
+
+            do {
+                try fileManager.createDirectory(at: tmpSubFolderURL, withIntermediateDirectories: true, attributes: nil)
+                let fileURL = tmpSubFolderURL.appendingPathComponent("image.jpg")
+                try imageData.write(to: fileURL, options: [])
+                let imageAttachment = try UNNotificationAttachment.init(identifier: Constrant.identifier.request, url: fileURL, options: [:])
+                content.attachments.append(imageAttachment)
+
+            } catch let error {
+                print("error \(error)")
+            }
+        }
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+
+
+
+
+        let request = UNNotificationRequest(identifier: Constrant.identifier.request, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            UNUserNotificationCenter.current().delegate = self
+            if (error != nil){
+                //handle here
+            }
+        }
+    }
+
     // MARK: UNUserNotificationCenterDelegate
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print(notification.request.content.attachments)
-
-
         completionHandler( [.alert, .badge, .sound])
 
     }
 
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        if arrayData.count > 4 {
-            tableView(tableView, didSelectRowAt: IndexPath(item: 0, section: 0))
+    func pushDetailFirst() {
+        guard  arrayData.count > 0 else {
+            return
         }
+        let detail = DetailPieceVC(entry: arrayData[0])
+        navigationController?.pushViewController(detail, animated: true)
+
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+       pushDetailFirst()
 
     }
     

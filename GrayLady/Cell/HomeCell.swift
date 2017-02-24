@@ -87,6 +87,7 @@ class HomeCell: UITableViewCell {
         let dataPiece = entry.fields["piece"] as! [Any]
         let pieceFirst = dataPiece[0] as! Entry
         let infoPieceFirst = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(pieceFirst)
+        print(infoPieceFirst.infoImg.url)
         heightImage?.constant = infoPieceFirst.infoImg.aspectImg() * UIScreen.main.bounds.width
         imgView.kf.setImage(with: URL.init(string: infoPieceFirst.infoImg.url))
     }

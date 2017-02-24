@@ -20,7 +20,6 @@ class ManageContentful {
         _ = client.fetchEntries(matching: [Constrant.keyAPI.content_type : "briefing", "order": "-fields.briefingDate", "limit": 2]) { (resulft) in
             switch resulft {
             case let .success(entry):
-
                 completer(entry.items)
             case .error(_):
                 completer(nil)
@@ -28,7 +27,7 @@ class ManageContentful {
         }
     }
 
-    func getEntryBriefingPage(page: Int, completer:@escaping ([Entry]?) -> Void) {
+    func getEntryBriefingPage(_ page: Int, completer:@escaping ([Entry]?) -> Void) {
 
         _ = client.fetchEntries(matching: [Constrant.keyAPI.content_type : "briefing", "order": "-fields.briefingDate", "limit": ITEM, "skip": page * ITEM]) { (resulft) in
             switch resulft {

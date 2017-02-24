@@ -14,16 +14,14 @@ import SafariServices
 private let cellId = "DetailPieceCell"
 class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    var entry: Entry?
     var arrayData =  [Any]()
+    let backGroundImgView = UIView()
+    var preView = PreviewImage()
 
     convenience init(entry: Entry) {
         self.init()
-        self.entry = entry
         arrayData = entry.fields["piece"] as! [Any]
     }
-
-    let backGroundImgView = UIView()
 
 
     lazy var collectionView: UICollectionView = {
@@ -84,13 +82,13 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         let info = ManageContentful.sharedInstance.getInfoPiece_fromBriefing(entry)
         cell.configCell(entry: entry)
 
-        cell.handTapLink = {
+        cell.handTapLink = {[unowned self] in
             let safari = SFSafariViewController(url: cell.link!)
             safari.modalPresentationStyle = .overFullScreen
             self.present(safari, animated: true, completion: nil)
         }
 
-        cell.handTapContent = {
+        cell.handTapContent = {[unowned self] in
 
             if indexPath.item < self.arrayData.count - 1 {
                 let nextIndexPath = IndexPath(row: indexPath.item + 1, section: 0)
@@ -101,46 +99,45 @@ class DetailPieceVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
             }
         }
 
-        cell.handleAlert = {
+        cell.handleAlert = {[unowned self] in
             self.present(cell.alertControler!, animated: true, completion: nil)
         }
 
 
-        cell.handTapImg = {
+        cell.handTapImg = {[unowned self] in
             self.backGroundImgView.frame = self.view.frame
             self.backGroundImgView.backgroundColor = .clear
 
             if let startFrame = cell.imgView.superview?.convert(cell.imgView.frame, to: nil) {
-                let preView = PreviewImage.init(info: info.infoImg)
+                self.preView = PreviewImage.init(info: info.infoImg)
 
                 self.backGroundImgView.frame = self.view.frame
                 self.view.addSubview(self.backGroundImgView)
 
-                preView.frame = startFrame
-                self.backGroundImgView.addSubview(preView)
+                self.preView.frame = startFrame
+                self.backGroundImgView.addSubview(self.preView)
 
                 UIView.animate(withDuration: 0.35, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: { () -> Void in
-                    preView.frame = self.view.frame
-                    preView.scrollView.frame = self.view.frame
-                    preView.imgView.frame = CGRect(x: 0, y: 0, width: self.view.frame.height / preView.imgInfo.aspectImg(), height: self.view.frame.size.height)
-                    preView.scrollView.contentSize = preView.imgView.frame.size
-                    let centerXoffset = (preView.scrollView.contentSize.width - preView.scrollView.frame.width) / 2
-                    preView.scrollView.setContentOffset(CGPoint.init(x: centerXoffset, y: 0), animated: false)
+                    self.preView.frame = self.view.frame
+                    self.preView.scrollView.frame = self.view.frame
+                    self.preView.imgView.frame = CGRect(x: 0, y: 0, width: self.view.frame.height / self.preView.imgInfo.aspectImg(), height: self.view.frame.size.height)
+                    self.preView.scrollView.contentSize = self.preView.imgView.frame.size
+                    let centerXoffset = (self.preView.scrollView.contentSize.width - self.preView.scrollView.frame.width) / 2
+                    self.preView.scrollView.setContentOffset(CGPoint.init(x: centerXoffset, y: 0), animated: false)
 
                 }, completion: { (didComplete) -> Void in
                     self.backGroundImgView.backgroundColor = .black
                 })
 
-                preView.hadleDismissTapImg = {
+                self.preView.hadleDismissTapImg = {[unowned self] in
                     self.backGroundImgView.backgroundColor = .clear
-
                     if let startFrame = cell.imgView.superview?.convert(cell.imgView.frame, to: nil) {
                         UIView.animate(withDuration: 0.35, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: { () -> Void in
-                            preView.imgView.frame = startFrame
-                            preView.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                            self.preView.imgView.frame = startFrame
+                            self.preView.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
 
                         }, completion: { (didComplete) -> Void in
-                            preView.removeFromSuperview()
+                            self.preView.removeFromSuperview()
                             self.backGroundImgView.removeFromSuperview()
                         })
                         

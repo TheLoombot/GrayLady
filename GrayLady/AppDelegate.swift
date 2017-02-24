@@ -13,25 +13,36 @@ import AWSSNS
 
 @UIApplicationMain
 
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenterDelegate{
     var window: UIWindow?
     let SNSPlatformApplicationArn = "arn:aws:sns:us-east-1:467509107760:app/APNS_SANDBOX/GrayLady2"
+    var navi: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
-        let navi = UINavigationController(rootViewController: HomeTVC())
-        navi.navigationBar.isHidden = true
+        navi = UINavigationController(rootViewController: HomeTVC())
+        navi?.navigationBar.isHidden = true
         window?.rootViewController = navi
+        if let notification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [String: AnyObject] {
+           print(notification)
+
+
+        } else {
+            let center = UNUserNotificationCenter.current()
+            let action = UNNotificationAction(identifier: Constrant.identifier.reply, title: "reply")
+            let category = UNNotificationCategory(identifier: Constrant.identifier.category, actions: [action], intentIdentifiers: [])
+            center.delegate = self
+            center.setNotificationCategories([category])
+            center.requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
+            application.registerForRemoteNotifications()
+             showDelayedNotification()
+        }
+
       
-        let center = UNUserNotificationCenter.current()
-        let action = UNNotificationAction(identifier: Constrant.identifier.reply, title: "reply")
-        let category = UNNotificationCategory(identifier: Constrant.identifier.category, actions: [action], intentIdentifiers: [])
-        center.setNotificationCategories([category])
-        center.requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
-        application.registerForRemoteNotifications()
+
+
 
 
         return true
@@ -50,6 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+    }
+
+
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+       
     }
 
 
@@ -103,6 +119,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Print the error to console (you should alert the user that registration failed)
         print("APNs registration failed: \(error)")
     }
+
+
+    func showDelayedNotification() {
+        let content = NotificationContent(title: Constrant.appName, subTitle: "Sub title here", body: "and this is the body")
+               let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+
+        guard  let imageData = NSData(contentsOf: URL(string: "http://images.contentful.com/clmzlcmno5rw/13b0LcayL60YOmukCGSk4O/8511756c395051ff6eeb52cfe97858ac/briefing_1-President_Trump.jpg")!) else { return }
+        let fileManager = FileManager.default
+        let tmpSubFolderName = ProcessInfo.processInfo.globallyUniqueString
+        let tmpSubFolderURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(tmpSubFolderName, isDirectory: true)
+
+        do {
+            try fileManager.createDirectory(at: tmpSubFolderURL, withIntermediateDirectories: true, attributes: nil)
+            let fileURL = tmpSubFolderURL.appendingPathComponent("image.jpg")
+            try imageData.write(to: fileURL, options: [])
+            let imageAttachment = try UNNotificationAttachment.init(identifier: Constrant.identifier.request, url: fileURL, options: [:])
+            content.attachments.append(imageAttachment)
+
+        } catch let error {
+            print("error \(error)")
+        }
+
+
+
+
+
+        let request = UNNotificationRequest(identifier: Constrant.identifier.request, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+             UNUserNotificationCenter.current().delegate = self
+
+            if (error != nil){
+                //handle here
+            }
+        }
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print(notification.request.content.attachments)
+        completionHandler( [.alert, .badge, .sound])
+
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+       let home =  navi?.topViewController as! HomeTVC
+       home.pushDetailFirst()
+        
+    }
+
+
+   
     
     
 }
